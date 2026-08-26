@@ -85,7 +85,6 @@
   font-size: clamp(48px, 9vw, 120px);
   line-height: 1.05;
   color: var(--white);
-  word-spacing: -0.14em;
 }
 
 .hero-copy .hero-title-line {
