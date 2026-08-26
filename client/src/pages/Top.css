@@ -132,6 +132,10 @@
 .stat-value {
   font-size: clamp(30px, 4vw, 44px);
   font-weight: 800;
+  background: none;
+  -webkit-background-clip: initial;
+  background-clip: initial;
+  color: var(--blue-2);
 }
 
 .stat-label {
