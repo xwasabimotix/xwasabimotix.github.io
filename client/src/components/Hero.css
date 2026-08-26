@@ -53,7 +53,8 @@
   top: 50%;
   left: 0;
   right: 0;
-  height: clamp(156px, 29.2vw, 389px);
+  /* ハンバーガーメニューが出る幅までは高さを固定し、横幅の変化だけで対応する */
+  height: 389px;
   transform: translateY(-50%);
   overflow: hidden;
 }
@@ -83,7 +84,8 @@
   display: grid;
   justify-items: end;
   max-width: 100%;
-  font-size: clamp(48px, 9vw, 120px);
+  /* ハンバーガーメニューが出る幅までは文字サイズを固定し、横幅の変化だけで対応する */
+  font-size: 120px;
   line-height: 1.05;
   color: var(--white);
 }
@@ -119,7 +121,7 @@
   text-align: left;
   color: rgb(255, 255, 255);
   font-family: Verdana, 'Trebuchet MS', Tahoma, sans-serif;
-  font-size: clamp(9.5px, 1.78vw, 23.75px);
+  font-size: 23.75px;
   opacity: 0;
   transition: opacity 0.7s ease;
 }
@@ -132,6 +134,22 @@
   .hero-sub {
     opacity: 1;
     transition: none;
+  }
+}
+
+/* ハンバーガーメニューに切り替わる幅(Header.cssの860pxと合わせる)から、
+   文字サイズ・背景写真の帯の高さを画面幅に応じて縮小する */
+@media (max-width: 860px) {
+  .hero-copy h1 {
+    font-size: clamp(48px, 9vw, 120px);
+  }
+
+  .hero-line {
+    height: clamp(156px, 29.2vw, 389px);
+  }
+
+  .hero-sub {
+    font-size: clamp(9.5px, 1.78vw, 23.75px);
   }
 }
 
