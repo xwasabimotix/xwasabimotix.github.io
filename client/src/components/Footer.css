@@ -4,12 +4,32 @@
 }
 
 .footer-cta {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 24px;
   padding: 64px 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+}
+
+.footer-cta > * {
+  position: relative;
+}
+
+.footer-cta-filler {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: auto;
+  width: 800px;
+  max-width: 100%;
+  align-items: flex-end;
+  text-align: right;
+  justify-content: center;
+  z-index: 0;
 }
 
 .footer-cta h2 {

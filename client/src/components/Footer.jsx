@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import Logo from './Logo.jsx'
+import MoreFiller from './MoreFiller.jsx'
 import { SERVICES } from '../data/services.js'
 import './Footer.css'
 
@@ -9,6 +10,7 @@ export default function Footer() {
   return (
     <footer className="site-footer">
       <div className="container footer-cta">
+        <MoreFiller className="footer-cta-filler" count={4} />
         <div>
           <p className="eyebrow">CONTACT</p>
           <h2>

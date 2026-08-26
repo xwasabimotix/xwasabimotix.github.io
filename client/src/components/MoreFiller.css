@@ -1,0 +1,19 @@
+.more-filler {
+  display: flex;
+  flex-direction: column;
+  pointer-events: none;
+  user-select: none;
+  font-weight: 800;
+  font-size: clamp(20px, 3.4vw, 40px);
+  line-height: 1.1;
+  color: var(--white);
+  white-space: nowrap;
+}
+
+.more-filler-pending {
+  opacity: 0;
+}
+
+.more-filler-line .scramble-char.is-settled {
+  opacity: 0.08;
+}
