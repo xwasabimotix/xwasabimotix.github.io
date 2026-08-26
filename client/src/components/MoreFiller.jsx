@@ -3,11 +3,11 @@ import ScrambleText from './ScrambleText.jsx'
 import { SLOW_STAGGER_MS } from '../utils/typingCurve.js'
 import './MoreFiller.css'
 
-// 幅が狭いほど速く: 1400px以上で1.2倍、390px以下で2倍、間は線形補間
+// 幅が狭いほど速く: 1400px以上で1.2倍、390px以下で1.5倍、間は線形補間
 const WIDE_REF = 1400
 const NARROW_REF = 390
 const WIDE_SPEED = 1.2
-const NARROW_SPEED = 2
+const NARROW_SPEED = 1.5
 
 const getSpeedMultiplier = (width) => {
   const t = (WIDE_REF - width) / (WIDE_REF - NARROW_REF)
