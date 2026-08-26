@@ -125,11 +125,11 @@ export default function Top() {
             </div>
             <div>
               <h3 className="message-heading">
-                First - 手を動かす
+                01 行動を起こす
                 <br />
-                Second - 検証する
+                02 想いを形にする
                 <br />
-                Third - 分析する
+                03 価値を創造する
               </h3>
               <p className="message-text">
                 独学でイラストや3D制作、ゲーム開発を学び、そこからWebやAIの領域へと軸足を広げてきました。
