@@ -1,6 +1,5 @@
 import { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
-import founderImg from '../assets/founder.png'
 import { SERVICES } from '../data/services.js'
 import { CATEGORIES, WORKS } from '../data/works.js'
 import { BLOG_POSTS } from '../data/blog.js'
@@ -80,9 +79,6 @@ export default function Top() {
             <p>誰がつくっているかを、正直にお伝えしたいと思っています。</p>
           </div>
           <div className="message-grid">
-            <div className="message-photo">
-              <img src={founderImg} alt="代表" />
-            </div>
             <div>
               <h3 className="message-heading">
                 01 行動を起こす
