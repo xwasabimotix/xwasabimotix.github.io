@@ -41,7 +41,7 @@ export default function Contact() {
           </div>
 
           {phase === 'success' ? (
-            <div className="contact-success card">
+            <div className="contact-success">
               <div className="success-icon-wrap">
                 <svg
                   className="success-mail-icon"
