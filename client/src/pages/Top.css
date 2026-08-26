@@ -246,31 +246,6 @@
   color: var(--gray-700);
 }
 
-/* ---- Recruit banner ---- */
-.recruit-banner {
-  background: var(--navy-3);
-}
-
-.recruit-banner-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-  padding: 48px 0;
-  color: var(--white);
-}
-
-.recruit-banner-inner h2 {
-  margin-top: 8px;
-  font-size: clamp(20px, 2.6vw, 26px);
-}
-
-.recruit-banner-inner p {
-  margin-top: 8px;
-  color: rgba(255, 255, 255, 0.6);
-  font-size: 14px;
-}
-
 @media (max-width: 960px) {
   .reasons-grid,
   .stats-grid,
@@ -293,11 +268,6 @@
 
   .testimonial-card {
     width: 260px;
-  }
-
-  .recruit-banner-inner {
-    flex-direction: column;
-    align-items: flex-start;
   }
 }
 

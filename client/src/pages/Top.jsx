@@ -352,22 +352,6 @@ export default function Top() {
         </div>
       </section>
 
-      {/* 採用バナー */}
-      <section className="recruit-banner">
-        <div className="container recruit-banner-inner">
-          <div>
-            <p className="eyebrow eyebrow--light">RECRUIT</p>
-            <h2>
-              <FlyInText as="span" text="一緒に「想像を形にする」仲間を募集しています" />
-            </h2>
-            <p>Web・ビジュアル・AI、興味のある領域から関わっていただけます。</p>
-          </div>
-          <a href="#contact" className="btn btn-ghost">
-            採用について問い合わせる
-          </a>
-        </div>
-      </section>
-
       {/* CONTACT */}
       <Contact />
     </>
