@@ -9,8 +9,8 @@ export default function Footer() {
 
   return (
     <footer className="site-footer">
+      <MoreFiller className="footer-filler" count={20} />
       <div className="container footer-cta">
-        <MoreFiller className="footer-cta-filler" count={4} />
         <div>
           <p className="eyebrow">CONTACT</p>
           <h2>

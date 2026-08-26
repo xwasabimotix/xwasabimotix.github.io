@@ -1,10 +1,9 @@
 import { useEffect, useRef, useState } from 'react'
 import ScrambleText from './ScrambleText.jsx'
+import { SLOW_STAGGER_MS } from '../utils/typingCurve.js'
 import './MoreFiller.css'
 
-const STAGGER_MS = 100 / 1.5
-
-export default function MoreFiller({ count = 6, className = '' }) {
+export default function MoreFiller({ count = 20, className = '' }) {
   const [started, setStarted] = useState(false)
   const [activeLine, setActiveLine] = useState(0)
   const containerRef = useRef(null)
@@ -37,8 +36,8 @@ export default function MoreFiller({ count = 6, className = '' }) {
             <ScrambleText
               as="span"
               text="MORE."
-              baseDuration={STAGGER_MS}
-              stagger={STAGGER_MS}
+              baseDuration={SLOW_STAGGER_MS}
+              stagger={SLOW_STAGGER_MS}
               onComplete={() => handleLineComplete(i)}
             />
           ) : (

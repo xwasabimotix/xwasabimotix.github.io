@@ -1,43 +1,23 @@
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import heroOfficeImg from '../assets/hero-office.png'
 import ScrambleText from './ScrambleText.jsx'
+import { SLOW_STAGGER_MS, staggerIn, staggerOut } from '../utils/typingCurve.js'
 import './Hero.css'
 
 const HERO_TITLE_LINES = ['DO MORE.', 'MAKE MORE.', 'CREATE MORE.']
 const HERO_FILLER_COUNT = 8
-const HERO_FAST_STAGGER_MS = 8
-const HERO_SLOW_STAGGER_MS = 100 / 1.5
-const HERO_EASE_STEEPNESS = 2.6
-
-const smoothstep = (t) => t * t * (3 - 2 * t)
-const clamp01 = (t) => Math.min(1, Math.max(0, t))
-
-// compress the ramp into the last part of the range (change happens late, near the title)
-const shapeLate = (t) => clamp01((t - (1 - 1 / HERO_EASE_STEEPNESS)) * HERO_EASE_STEEPNESS)
-// compress the ramp into the first part of the range (change happens early, right after the title)
-const shapeEarly = (t) => clamp01(t * HERO_EASE_STEEPNESS)
-
-// top filler: fast (far from title) -> slow (near title), steep transition right before the title
-const fillerStaggerIn = (i) =>
-  HERO_FAST_STAGGER_MS +
-  (HERO_SLOW_STAGGER_MS - HERO_FAST_STAGGER_MS) * smoothstep(shapeLate(i / (HERO_FILLER_COUNT - 1)))
-
-// bottom filler: slow (near title) -> fast (far from title), steep transition right after the title
-const fillerStaggerOut = (i) =>
-  HERO_SLOW_STAGGER_MS +
-  (HERO_FAST_STAGGER_MS - HERO_SLOW_STAGGER_MS) * smoothstep(shapeEarly(i / (HERO_FILLER_COUNT - 1)))
 
 const HERO_LINES = [
   ...Array.from({ length: HERO_FILLER_COUNT }, (_, i) => ({
     text: 'MORE.',
     filler: true,
-    stagger: fillerStaggerIn(i),
+    stagger: staggerIn(i, HERO_FILLER_COUNT),
   })),
-  ...HERO_TITLE_LINES.map((text) => ({ text, filler: false, stagger: HERO_SLOW_STAGGER_MS })),
+  ...HERO_TITLE_LINES.map((text) => ({ text, filler: false, stagger: SLOW_STAGGER_MS })),
   ...Array.from({ length: HERO_FILLER_COUNT }, (_, i) => ({
     text: 'MORE.',
     filler: true,
-    stagger: fillerStaggerOut(i),
+    stagger: staggerOut(i, HERO_FILLER_COUNT),
   })),
 ]
 const HERO_REAL_END_INDEX = HERO_FILLER_COUNT + HERO_TITLE_LINES.length - 1
