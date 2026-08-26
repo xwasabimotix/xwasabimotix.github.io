@@ -4,11 +4,12 @@ import FlyInText from './FlyInText.jsx'
 import './Contact.css'
 
 export default function Contact() {
-  const [submitted, setSubmitted] = useState(false)
+  const [phase, setPhase] = useState('form') // 'form' | 'shrinking' | 'success'
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    setSubmitted(true)
+    setPhase('shrinking')
+    window.setTimeout(() => setPhase('success'), 350)
   }
 
   return (
@@ -39,13 +40,49 @@ export default function Contact() {
             </p>
           </div>
 
-          {submitted ? (
+          {phase === 'success' ? (
             <div className="contact-success card">
-              <p className="contact-success-title">お問い合わせありがとうございます。</p>
+              <div className="success-icon-wrap">
+                <svg
+                  className="success-mail-icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <rect x="2.5" y="5" width="19" height="14" rx="2.5" stroke="currentColor" strokeWidth="1.6" />
+                  <path
+                    d="M3.5 6.5L12 13L20.5 6.5"
+                    stroke="currentColor"
+                    strokeWidth="1.6"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </div>
+              <div className="success-check-row">
+                <svg
+                  className="success-check-icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M5 12.5L10 17.5L19 7"
+                    stroke="currentColor"
+                    strokeWidth="2.6"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+                <p className="contact-success-title">送信完了しました</p>
+              </div>
               <p>担当者よりあらためてご連絡いたします。</p>
             </div>
           ) : (
-            <form className="contact-form card" onSubmit={handleSubmit}>
+            <form
+              className={`contact-form card${phase === 'shrinking' ? ' is-shrinking' : ''}`}
+              onSubmit={handleSubmit}
+            >
               <label className="contact-field">
                 <span>お名前</span>
                 <input type="text" name="name" required />
