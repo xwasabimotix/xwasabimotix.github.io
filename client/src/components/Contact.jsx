@@ -62,38 +62,22 @@ export default function Contact() {
               <div className="contact-success">
                 <div className="success-icon-wrap">
                   <svg
-                    className="success-mail-icon"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    aria-hidden="true"
-                  >
-                    <rect x="2.5" y="5" width="19" height="14" rx="2.5" stroke="currentColor" strokeWidth="1.6" />
-                    <path
-                      d="M3.5 6.5L12 13L20.5 6.5"
-                      stroke="currentColor"
-                      strokeWidth="1.6"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </div>
-                <div className="success-check-row">
-                  <svg
                     className="success-check-icon"
                     viewBox="0 0 24 24"
                     fill="none"
                     aria-hidden="true"
                   >
+                    <circle cx="12" cy="12" r="10.5" stroke="currentColor" strokeWidth="1.6" />
                     <path
-                      d="M5 12.5L10 17.5L19 7"
+                      d="M7 12.5L10.5 16L17 8"
                       stroke="currentColor"
-                      strokeWidth="2.6"
+                      strokeWidth="1.8"
                       strokeLinecap="round"
                       strokeLinejoin="round"
                     />
                   </svg>
-                  <p className="contact-success-title">送信完了しました</p>
                 </div>
+                <p className="contact-success-title">送信完了しました</p>
                 <p>担当者よりあらためてご連絡いたします。</p>
               </div>
             ) : (
