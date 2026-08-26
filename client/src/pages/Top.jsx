@@ -11,6 +11,7 @@ import CountUp from '../components/CountUp.jsx'
 import FlyInText from '../components/FlyInText.jsx'
 import Hero from '../components/Hero.jsx'
 import Contact from '../components/Contact.jsx'
+import MoreFiller from '../components/MoreFiller.jsx'
 import './Top.css'
 import './Service.css'
 import './Works.css'
@@ -281,7 +282,8 @@ export default function Top() {
       </section>
 
       {/* 数字で見る実績 */}
-      <section className="section section--tight bg-navy">
+      <section className="section section--tight bg-navy numbers-section">
+        <MoreFiller className="numbers-filler" />
         <div className="container">
           <div className="section-head section-head--center">
             <p className="eyebrow eyebrow--light">NUMBERS</p>

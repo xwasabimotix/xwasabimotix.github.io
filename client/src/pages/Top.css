@@ -94,6 +94,27 @@
   margin: 0;
 }
 
+/* ---- Numbers ---- */
+.numbers-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.numbers-section > * {
+  position: relative;
+}
+
+.numbers-filler {
+  position: absolute;
+  top: 0;
+  /* .containerの右端(max-width:1160px + padding:24px)とヒーローと同じ位置に合わせる */
+  right: calc(max((100vw - 1160px) / 2, 0px) + 24px);
+  bottom: 0;
+  width: 800px;
+  max-width: 100%;
+  z-index: 0;
+}
+
 /* ---- Stats ---- */
 .stats-grid {
   grid-template-columns: repeat(3, 1fr);
