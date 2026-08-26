@@ -53,8 +53,9 @@
   top: 50%;
   left: 0;
   right: 0;
-  /* ハンバーガーメニューが出る幅までは高さを固定し、横幅の変化だけで対応する */
-  height: 389px;
+  /* 860px(ハンバーガーメニューに切り替わる幅)まではごく緩やかにしか縮まず、
+     そこから下の帯用clampへ値が途切れず滑らかにつながる */
+  height: clamp(251px, calc(139.3px + 13.01vw), 389px);
   transform: translateY(-50%);
   overflow: hidden;
 }
@@ -84,8 +85,9 @@
   display: grid;
   justify-items: end;
   max-width: 100%;
-  /* ハンバーガーメニューが出る幅までは文字サイズを固定し、横幅の変化だけで対応する */
-  font-size: 120px;
+  /* 860px(ハンバーガーメニューに切り替わる幅)まではごく緩やかにしか縮まず、
+     そこから下のモバイル用clampへ値が途切れず滑らかにつながる */
+  font-size: clamp(77.4px, calc(42.8px + 4.02vw), 120px);
   line-height: 1.05;
   color: var(--white);
 }
@@ -121,7 +123,7 @@
   text-align: left;
   color: rgb(255, 255, 255);
   font-family: Verdana, 'Trebuchet MS', Tahoma, sans-serif;
-  font-size: 23.75px;
+  font-size: clamp(15.31px, calc(8.46px + 0.796vw), 23.75px);
   opacity: 0;
   transition: opacity 0.7s ease;
 }
