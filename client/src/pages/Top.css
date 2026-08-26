@@ -112,6 +112,7 @@
   bottom: 0;
   width: 800px;
   max-width: 100%;
+  text-align: right;
   z-index: 0;
 }
 
