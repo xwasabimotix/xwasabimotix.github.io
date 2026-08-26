@@ -2,6 +2,7 @@
   position: relative;
   height: 100svh;
   overflow: hidden;
+  background: linear-gradient(90deg, var(--navy) 0%, var(--navy-3) 55%, #143066 100%);
 }
 
 .hero-section::before {
