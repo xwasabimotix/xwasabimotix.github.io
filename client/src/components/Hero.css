@@ -92,6 +92,11 @@
   white-space: nowrap;
 }
 
+/* MORE.の位置は変えず、手前の単語だけをMORE.側へ寄せて隙間を詰める */
+.hero-title-line:not(.hero-title-filler) .scramble-char:not(.scramble-char--accent) {
+  transform: translateX(0.14em);
+}
+
 .hero-title-filler .scramble-char.is-settled {
   opacity: 0.08;
 }
