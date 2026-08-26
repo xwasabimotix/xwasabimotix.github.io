@@ -294,6 +294,7 @@ button {
 
 .page-hero {
   padding: 108px 0 56px;
+  background: linear-gradient(90deg, var(--navy) 0%, var(--navy-3) 55%, #143066 100%);
 }
 
 .page-hero h1 {
