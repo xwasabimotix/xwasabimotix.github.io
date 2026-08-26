@@ -74,10 +74,6 @@ export default function Top() {
         <div className="container">
           <div className="section-head">
             <p className="eyebrow">ABOUT</p>
-            <h2>
-              <FlyInText as="span" text="会社概要・代表メッセージ" />
-            </h2>
-            <p>誰がつくっているかを、正直にお伝えしたいと思っています。</p>
           </div>
           <div className="message-grid">
             <div>
