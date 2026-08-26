@@ -1,0 +1,125 @@
+.hero-section {
+  position: relative;
+  height: 100svh;
+  overflow: hidden;
+}
+
+.hero-mask {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  padding: 96px 0 110px;
+  overflow: hidden;
+  mask-image: linear-gradient(to bottom, transparent 0%, black 14%, black 86%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 14%, black 86%, transparent 100%);
+}
+
+.scramble-char--accent,
+.scramble-char.is-settled.scramble-char--accent {
+  color: var(--blue-2);
+}
+
+.scramble-char--accent.is-settled::before {
+  content: attr(data-char);
+  position: absolute;
+  inset: 0;
+  background-image: url('../assets/hero-office.png');
+  background-repeat: no-repeat;
+  background-size: var(--accent-bg-size, cover);
+  background-position: var(--accent-bg-pos, center);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.hero-line {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: clamp(156px, 29.2vw, 389px);
+  transform: translateY(-50%);
+  overflow: hidden;
+}
+
+.hero-line-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  opacity: 1;
+  filter: saturate(0.75) brightness(0.8) contrast(0.75);
+  clip-path: polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%);
+  transition: clip-path 1.1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.hero-grid {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.hero-copy {
+  text-align: right;
+  max-width: 800px;
+}
+
+.hero-copy h1 {
+  display: grid;
+  justify-items: end;
+  max-width: 100%;
+  font-size: clamp(48px, 9vw, 120px);
+  line-height: 1.05;
+  color: var(--white);
+}
+
+.hero-copy .hero-title-line {
+  position: relative;
+  white-space: nowrap;
+}
+
+.hero-title-filler .scramble-char.is-settled {
+  opacity: 0.08;
+}
+
+.hero-title-line-pending {
+  opacity: 0;
+}
+
+.hero-title-line + .hero-title-line {
+  margin-top: 4px;
+}
+
+.hero-sub {
+  position: absolute;
+  left: 13.7%;
+  top: 100%;
+  margin-top: 0.35em;
+  white-space: nowrap;
+  text-align: left;
+  color: rgb(255, 255, 255);
+  font-family: Verdana, 'Trebuchet MS', Tahoma, sans-serif;
+  font-size: clamp(9.5px, 1.78vw, 23.75px);
+  opacity: 0;
+  transition: opacity 0.7s ease;
+}
+
+.hero-sub.is-visible {
+  opacity: 0.7;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-sub {
+    opacity: 1;
+    transition: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-mask {
+    padding: 64px 0 72px;
+  }
+}
