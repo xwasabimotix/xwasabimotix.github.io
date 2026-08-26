@@ -1,0 +1,86 @@
+.scramble-text {
+  display: inline-block;
+}
+
+.scramble-char {
+  position: relative;
+  display: inline-block;
+  white-space: pre;
+  color: #ffffff;
+  opacity: 0;
+}
+
+.scramble-char.is-active-cursor {
+  opacity: 1;
+  color: transparent;
+}
+
+.scramble-char.is-active-cursor::before {
+  content: '_';
+  position: absolute;
+  inset: 0;
+  color: #ffffff;
+  opacity: 1;
+  animation: cursor-blink 0.9s steps(1) infinite;
+}
+
+.scramble-char--accent.is-active-cursor::before {
+  color: var(--blue-2);
+}
+
+@keyframes cursor-blink {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+.scramble-char.is-settled {
+  color: inherit;
+  opacity: 1;
+  animation: none;
+}
+
+.scramble-char.is-settled::after {
+  content: attr(data-char);
+  position: absolute;
+  inset: 0;
+  color: #ffffff;
+  opacity: 0;
+  pointer-events: none;
+  animation: settle-bleed 0.3s ease-out;
+}
+
+@keyframes settle-bleed {
+  0% {
+    opacity: 0.9;
+    transform: translateX(0);
+    filter: blur(2px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-10px);
+    filter: blur(9px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scramble-char {
+    color: inherit;
+    opacity: 1;
+    animation: none;
+  }
+
+  .scramble-char--accent {
+    color: transparent;
+  }
+
+  .scramble-char.is-settled::after {
+    animation: none;
+    display: none;
+  }
+}

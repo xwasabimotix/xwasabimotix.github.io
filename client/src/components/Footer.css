@@ -1,0 +1,90 @@
+.site-footer {
+  background: var(--gradient-dark);
+  color: var(--white);
+}
+
+.footer-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 64px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-cta h2 {
+  font-size: clamp(24px, 3vw, 32px);
+  margin-top: 8px;
+}
+
+.footer-cta p {
+  margin-top: 12px;
+  color: rgba(255, 255, 255, 0.65);
+  max-width: 440px;
+}
+
+.footer-cta .btn {
+  flex-shrink: 0;
+}
+
+.footer-main {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: 32px;
+  padding: 56px 0 40px;
+}
+
+.footer-brand p {
+  margin-top: 16px;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 14px;
+  max-width: 280px;
+}
+
+.footer-nav-title {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.4);
+  margin-bottom: 16px;
+}
+
+.footer-nav ul {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-nav a {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.75);
+  transition: color 0.2s ease;
+}
+
+.footer-nav a:hover {
+  color: var(--white);
+}
+
+.footer-bottom {
+  padding: 24px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-bottom p {
+  font-size: 12.5px;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+@media (max-width: 780px) {
+  .footer-cta {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 48px 0;
+  }
+
+  .footer-main {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 44px 0 32px;
+  }
+}

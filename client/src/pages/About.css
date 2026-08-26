@@ -1,0 +1,201 @@
+.section-title {
+  margin-top: 10px;
+  font-size: clamp(24px, 3.2vw, 34px);
+  max-width: 680px;
+}
+
+/* ---- 代表メッセージ ---- */
+.message-grid {
+  display: grid;
+  grid-template-columns: 408px 1fr;
+  gap: 56px;
+  align-items: start;
+}
+
+.message-photo {
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  aspect-ratio: 3 / 4;
+}
+
+.message-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 35% 30%;
+}
+
+.message-heading {
+  margin-top: 0;
+  font-size: clamp(22px, 2.8vw, 28px);
+}
+
+.message-text {
+  margin-top: 20px;
+  font-size: 15px;
+  color: var(--gray-700);
+  line-height: 1.95;
+}
+
+.message-sign {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--gray-200);
+  font-size: 14.5px;
+  font-weight: 700;
+}
+
+/* ---- 会社概要 ---- */
+.company-table {
+  margin-top: 32px;
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--white);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.company-table tr + tr {
+  border-top: 1px solid var(--gray-100);
+}
+
+.company-table th,
+.company-table td {
+  padding: 18px 24px;
+  text-align: left;
+  font-size: 14.5px;
+}
+
+.company-table th {
+  width: 200px;
+  color: var(--gray-500);
+  font-weight: 700;
+  background: var(--gray-50);
+}
+
+.company-table td {
+  color: var(--ink);
+}
+
+/* ---- 沿革 ---- */
+.history-list {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+}
+
+.history-list li {
+  display: flex;
+  gap: 28px;
+  padding: 20px 0;
+  border-top: 1px solid var(--gray-100);
+}
+
+.history-list li:last-child {
+  border-bottom: 1px solid var(--gray-100);
+}
+
+.history-year {
+  flex-shrink: 0;
+  width: 70px;
+  font-weight: 800;
+  color: var(--blue);
+  font-size: 15px;
+}
+
+.history-text {
+  font-size: 14.5px;
+  color: var(--gray-700);
+}
+
+/* ---- インタビュー ---- */
+.interview-list {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  max-width: 760px;
+}
+
+.interview-item {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.interview-q {
+  padding: 16px 22px;
+  background: var(--gray-100);
+  border-radius: var(--radius);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.7;
+}
+
+.interview-q-label {
+  color: var(--blue);
+}
+
+.interview-a-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.interview-avatar {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  object-fit: cover;
+  object-position: 35% 30%;
+  box-shadow: var(--shadow-sm);
+}
+
+.interview-bubble {
+  position: relative;
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  box-shadow: var(--shadow-sm);
+}
+
+.interview-bubble::before {
+  content: '';
+  position: absolute;
+  left: -8px;
+  top: 26px;
+  width: 0;
+  height: 0;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-right: 8px solid var(--white);
+}
+
+.interview-a {
+  margin-top: 0;
+  font-size: 14.5px;
+  color: var(--gray-700);
+  line-height: 1.9;
+}
+
+.interview-a + .interview-a {
+  margin-top: 14px;
+}
+
+@media (max-width: 780px) {
+  .message-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .message-photo {
+    max-width: 430px;
+    margin: 0 auto;
+  }
+
+  .company-table th {
+    width: 130px;
+  }
+}

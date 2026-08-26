@@ -1,0 +1,51 @@
+.service-list-grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.service-list-card {
+  display: flex;
+  flex-direction: column;
+  padding: 36px 30px;
+  position: relative;
+}
+
+.service-list-index {
+  position: absolute;
+  top: 24px;
+  right: 28px;
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--gray-200);
+}
+
+.service-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  background: var(--gradient);
+  margin-bottom: 20px;
+}
+
+.service-list-card h2 {
+  font-size: 19px;
+}
+
+.service-list-card p {
+  margin-top: 12px;
+  color: var(--gray-700);
+  font-size: 14.5px;
+  flex: 1;
+}
+
+.service-card-link {
+  margin-top: 20px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--blue);
+}
+
+@media (max-width: 960px) {
+  .service-list-grid {
+    grid-template-columns: 1fr;
+  }
+}

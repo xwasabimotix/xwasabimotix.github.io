@@ -1,0 +1,31 @@
+.fly-in-text {
+  display: inline-block;
+}
+
+.fly-in-char {
+  display: inline-block;
+  opacity: 0;
+  transform: translateX(120px);
+}
+
+.fly-in-char.is-active {
+  animation: fly-in-char 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes fly-in-char {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fly-in-char {
+    opacity: 1;
+    transform: none;
+  }
+
+  .fly-in-char.is-active {
+    animation: none;
+  }
+}

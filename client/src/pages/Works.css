@@ -1,0 +1,77 @@
+.works-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 40px;
+}
+
+.works-filter-btn {
+  padding: 10px 20px;
+  border-radius: 999px;
+  border: 1.5px solid var(--gray-200);
+  background: var(--white);
+  color: var(--gray-700);
+  font-size: 13.5px;
+  font-weight: 700;
+  transition: all 0.2s ease;
+}
+
+.works-filter-btn:hover {
+  border-color: var(--blue);
+  color: var(--blue);
+}
+
+.works-filter-btn.is-active {
+  background: var(--gradient);
+  border-color: transparent;
+  color: var(--white);
+}
+
+.works-grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.work-card {
+  display: block;
+  padding: 10px;
+}
+
+.work-card-body {
+  padding: 16px 8px 6px;
+}
+
+.work-card-tag {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--blue);
+}
+
+.work-card-title {
+  margin-top: 8px;
+  font-size: 15.5px;
+  font-weight: 700;
+}
+
+.work-card-copy {
+  margin-top: 6px;
+  font-size: 13.5px;
+  color: var(--gray-500);
+}
+
+.works-empty {
+  text-align: center;
+  padding: 60px 0;
+  color: var(--gray-400);
+}
+
+@media (max-width: 960px) {
+  .works-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .works-grid {
+    grid-template-columns: 1fr;
+  }
+}

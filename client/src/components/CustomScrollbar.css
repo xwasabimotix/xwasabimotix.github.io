@@ -1,0 +1,35 @@
+.custom-scrollbar {
+  position: fixed;
+  top: 8px;
+  right: 4px;
+  bottom: 8px;
+  width: 10px;
+  z-index: 200;
+  cursor: pointer;
+}
+
+.custom-scrollbar.is-hidden {
+  display: none;
+}
+
+.custom-scrollbar-thumb {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  border-radius: 999px;
+  background-color: var(--blue-2);
+  opacity: 0.5;
+  cursor: grab;
+  touch-action: none;
+}
+
+.custom-scrollbar-thumb:active {
+  cursor: grabbing;
+}
+
+@media (max-width: 640px) {
+  .custom-scrollbar {
+    display: none;
+  }
+}
