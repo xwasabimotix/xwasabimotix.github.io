@@ -9,21 +9,7 @@ export default function Footer() {
 
   return (
     <footer className="site-footer">
-      <MoreFiller className="footer-filler" count={20} />
-      <div className="container footer-cta">
-        <div>
-          <p className="eyebrow">CONTACT</p>
-          <h2>
-            まずはお気軽に
-            <br />
-            ご相談ください
-          </h2>
-          <p>Web制作からビジュアル制作、AI活用開発支援まで。小さなご相談から承ります。</p>
-        </div>
-        <a href="#contact" className="btn btn-primary">
-          お問い合わせ
-        </a>
-      </div>
+      <MoreFiller className="footer-filler" count={16} />
 
       <div className="container footer-main">
         <div className="footer-brand">
