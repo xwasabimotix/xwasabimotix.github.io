@@ -8,7 +8,7 @@ export default function StatIcon({ type, percent = 0 }) {
       <svg className="stat-icon" viewBox="0 0 40 40" fill="none" aria-hidden="true">
         <defs>
           <linearGradient id={gradId} x1="8" y1="32" x2="32" y2="8" gradientUnits="userSpaceOnUse">
-            <stop offset="0" stopColor="#2f6bff" />
+            <stop offset="0" stopColor="#17d9ff" />
             <stop offset="1" stopColor="#17d9ff" />
           </linearGradient>
         </defs>
@@ -28,7 +28,7 @@ export default function StatIcon({ type, percent = 0 }) {
       <svg className="stat-icon" viewBox="0 0 40 40" fill="none" aria-hidden="true">
         <defs>
           <linearGradient id={gradId} x1="6" y1="5" x2="34" y2="33" gradientUnits="userSpaceOnUse">
-            <stop offset="0" stopColor="#2f6bff" />
+            <stop offset="0" stopColor="#17d9ff" />
             <stop offset="1" stopColor="#17d9ff" />
           </linearGradient>
         </defs>
@@ -49,7 +49,7 @@ export default function StatIcon({ type, percent = 0 }) {
       <svg className="stat-icon" viewBox="0 0 40 40" aria-hidden="true">
         <defs>
           <linearGradient id={gradId} x1="5" y1="35" x2="35" y2="5" gradientUnits="userSpaceOnUse">
-            <stop offset="0" stopColor="#2f6bff" />
+            <stop offset="0" stopColor="#17d9ff" />
             <stop offset="1" stopColor="#17d9ff" />
           </linearGradient>
         </defs>
