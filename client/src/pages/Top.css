@@ -248,7 +248,6 @@
 
 @media (max-width: 960px) {
   .reasons-grid,
-  .stats-grid,
   .blog-grid {
     grid-template-columns: repeat(2, 1fr);
   }
