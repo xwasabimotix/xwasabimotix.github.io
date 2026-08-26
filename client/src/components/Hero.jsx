@@ -162,7 +162,7 @@ export default function Hero() {
                     </span>
                   )}
                   {!item.filler && item.text === 'CREATE MORE.' && (
-                    <span className={`hero-sub ${titleSettled ? 'is-visible' : ''}`}>*This is a fictional website.</span>
+                    <span className={`hero-sub ${titleSettled ? 'is-visible' : ''}`}>※架空のウェブサイトです</span>
                   )}
                 </span>
               ))}
