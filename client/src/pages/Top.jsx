@@ -17,25 +17,6 @@ import './Service.css'
 import './Works.css'
 import './About.css'
 
-const REASONS = [
-  {
-    title: 'AI活用による制作スピード',
-    desc: 'ラフ生成から実装補助まで、AIを制作フローに組み込むことで、クオリティを保ちながらスピードを両立します。',
-  },
-  {
-    title: 'イラスト・3D領域まで内製できる表現力の幅',
-    desc: 'Webにとどまらず、イラストや3Dビジュアライズまで一貫して内製。世界観のズレが起きません。',
-  },
-  {
-    title: '代表自身が手を動かせる技術力への信頼',
-    desc: '企画から実制作まで、代表自身が手を動かします。伝言ゲームによるロスがありません。',
-  },
-  {
-    title: '小規模だからこその柔軟な対応',
-    desc: '意思決定が速く、要件の変化にも柔軟にキャッチアップしながら伴走します。',
-  },
-]
-
 const STATS = [
   { value: 109, decimals: 0, suffix: '', label: '制作実績数', icon: 'arrow' },
   { value: 15.9, decimals: 1, suffix: '日', label: '平均納品日数', icon: 'calendar' },
@@ -87,27 +68,6 @@ export default function Top() {
     <>
       {/* ファーストビュー */}
       <Hero />
-
-      {/* 選ばれる理由 */}
-      {/* 波の演出を一時停止中: className に section--wave-top を戻せば復活 */}
-      <section className="section">
-        <div className="container">
-          <div className="section-head">
-            <p className="eyebrow">WHY SAKAI TECC</p>
-            <h2>
-              <FlyInText as="span" text="選ばれる理由" />
-            </h2>
-          </div>
-          <div className="grid reasons-grid">
-            {REASONS.map((r) => (
-              <div className="card reason-card" key={r.title}>
-                <h3>{r.title}</h3>
-                <p>{r.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* ABOUT */}
       <section className="section" id="about">
