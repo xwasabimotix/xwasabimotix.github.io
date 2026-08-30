@@ -7,7 +7,7 @@
 
 .works-filter-btn {
   padding: 10px 20px;
-  border-radius: 999px;
+  border-radius: 0;
   border: 1.5px solid var(--gray-200);
   background: var(--white);
   color: var(--gray-700);

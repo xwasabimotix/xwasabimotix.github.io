@@ -21,7 +21,7 @@
 .service-icon {
   width: 46px;
   height: 46px;
-  border-radius: 12px;
+  border-radius: 0;
   background: var(--gradient);
   margin-bottom: 20px;
 }

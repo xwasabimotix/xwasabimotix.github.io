@@ -71,7 +71,7 @@
   right: 0;
   bottom: -4px;
   height: 2px;
-  border-radius: 2px;
+  border-radius: 0;
   background: var(--gradient);
 }
 
@@ -97,7 +97,7 @@
   display: block;
   height: 2px;
   background: var(--white);
-  border-radius: 2px;
+  border-radius: 0;
   transition: transform 0.25s ease, opacity 0.25s ease, background-color 0.25s ease;
 }
 

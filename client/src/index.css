@@ -12,9 +12,9 @@
   --gray-100: #eef1f7;
   --gray-50: #f6f8fb;
   --white: #ffffff;
-  --radius-sm: 8px;
-  --radius: 16px;
-  --radius-lg: 24px;
+  --radius-sm: 0;
+  --radius: 0;
+  --radius-lg: 0;
   --shadow-sm: 0 4px 14px rgba(10, 14, 26, 0.06);
   --shadow-md: 0 12px 30px rgba(10, 14, 26, 0.09);
   --shadow-lg: 0 24px 60px rgba(10, 14, 26, 0.16);
@@ -117,7 +117,7 @@ button {
   width: 22px;
   height: 2px;
   background: var(--gradient);
-  border-radius: 2px;
+  border-radius: 0;
 }
 
 .section {
@@ -156,7 +156,7 @@ button {
   justify-content: center;
   gap: 8px;
   padding: 14px 28px;
-  border-radius: 999px;
+  border-radius: 0;
   font-size: 15px;
   font-weight: 700;
   border: none;
@@ -244,7 +244,7 @@ button {
   display: inline-flex;
   align-items: center;
   padding: 5px 14px;
-  border-radius: 999px;
+  border-radius: 0;
   background: var(--gray-100);
   color: var(--gray-700);
   font-size: 12.5px;
