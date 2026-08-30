@@ -2,8 +2,13 @@
   display: flex;
   flex-wrap: nowrap;
   gap: 24px;
-  overflow-x: visible;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  padding-left: calc(max((100vw - 1160px) / 2, 0px) + 24px);
+  padding-right: 24px;
   padding-bottom: 8px;
+  box-sizing: border-box;
+  overflow-x: visible;
   transform: translateX(40vw);
   transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
   scrollbar-width: none;
@@ -56,13 +61,17 @@
 }
 
 .work-card {
-  display: block;
+  display: flex;
+  flex-direction: column;
   flex: 0 0 240px;
+  aspect-ratio: 1 / 1.618;
   padding: 10px;
 }
 
 .work-card .work-thumb {
-  aspect-ratio: 1 / 1.618;
+  flex: 1;
+  min-height: 0;
+  aspect-ratio: auto;
 }
 
 .work-card-body {
