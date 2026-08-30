@@ -1,6 +1,8 @@
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import founderImg from '../assets/founder.png'
+import workPhotoA from '../assets/Japanese Kaiseki Trio Overhead.png'
+import workPhotoB from '../assets/Pastel Konpeitō Jars on Wood.png'
 import { SERVICES } from '../data/services.js'
 import { WORKS } from '../data/works.js'
 import { BLOG_POSTS } from '../data/blog.js'
@@ -19,6 +21,7 @@ import './About.css'
 
 const WORKS_LOOP_COUNT = 3
 const WORKS_LOOPED = Array.from({ length: WORKS_LOOP_COUNT }, () => WORKS).flat()
+const WORK_CARD_IMAGES = [workPhotoA, workPhotoB]
 
 const STATS = [
   { value: 109, decimals: 0, suffix: '', label: '制作実績数', icon: 'arrow' },
@@ -275,7 +278,7 @@ export default function Top() {
                 draggable={false}
                 onDragStart={(e) => e.preventDefault()}
               >
-                <WorkThumb work={work} />
+                <WorkThumb work={work} image={WORK_CARD_IMAGES[i % WORK_CARD_IMAGES.length]} />
                 <div className="work-card-body">
                   <p className="work-card-tag">{work.industry}</p>
                   <p className="work-card-title">{work.title}</p>
