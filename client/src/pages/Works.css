@@ -1,3 +1,8 @@
+.works-section {
+  border-top: 1px solid var(--gray-200);
+  border-bottom: 1px solid var(--gray-200);
+}
+
 .works-grid {
   display: flex;
   flex-wrap: nowrap;

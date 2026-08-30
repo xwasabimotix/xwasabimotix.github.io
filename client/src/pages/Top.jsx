@@ -250,7 +250,7 @@ export default function Top() {
       </section>
 
       {/* WORKS */}
-      <section className="section" id="works">
+      <section className="section bg-soft works-section" id="works">
         <div className="container">
           <div className="section-head">
             <p className="eyebrow">WORKS</p>
