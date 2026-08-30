@@ -2,13 +2,12 @@
   display: flex;
   flex-wrap: nowrap;
   gap: 24px;
-  width: 100vw;
-  margin-left: calc(50% - 50vw);
-  padding-left: calc(max((100vw - 1160px) / 2, 0px) + 24px);
+  /* 左端はcontainerの内側にそのまま揃え、右端だけ画面の実際の端まで伸ばす */
+  width: calc(100vw - max((100vw - 1160px) / 2, 0px) - 24px);
   padding-right: 24px;
   padding-bottom: 8px;
   box-sizing: border-box;
-  overflow-x: visible;
+  overflow-x: auto;
   transform: translateX(40vw);
   transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
   scrollbar-width: none;
@@ -17,10 +16,6 @@
 
 .works-grid::-webkit-scrollbar {
   display: none;
-}
-
-.works-grid.is-settled {
-  overflow-x: auto;
 }
 
 .works-grid.is-dragging {
