@@ -17,3 +17,8 @@
 .more-filler-line .scramble-char.is-settled {
   opacity: 0.08;
 }
+
+.more-filler-line .scramble-char.is-settled::after {
+  content: none;
+  animation: none;
+}
