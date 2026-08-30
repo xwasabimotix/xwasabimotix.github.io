@@ -192,9 +192,9 @@ export default function Top() {
           </div>
 
           <div className="grid works-grid">
-            {filteredWorks.map((work) => (
+            {filteredWorks.map((work, index) => (
               <Link to={`/works/${work.id}`} className="card work-card" key={work.id}>
-                <WorkThumb work={work} />
+                <WorkThumb work={work} index={index} />
                 <div className="work-card-body">
                   <p className="work-card-tag">{work.industry}</p>
                   <p className="work-card-title">{work.title}</p>
