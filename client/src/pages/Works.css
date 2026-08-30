@@ -12,6 +12,7 @@
   transform: translateX(40vw);
   transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
   scrollbar-width: none;
+  cursor: grab;
 }
 
 .works-grid::-webkit-scrollbar {
@@ -20,6 +21,16 @@
 
 .works-grid.is-settled {
   overflow-x: auto;
+}
+
+.works-grid.is-dragging {
+  cursor: grabbing;
+  scroll-snap-type: none;
+  user-select: none;
+}
+
+.works-grid.is-dragging .work-card {
+  pointer-events: none;
 }
 
 .works-grid.is-visible {
