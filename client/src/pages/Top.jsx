@@ -1,8 +1,8 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import founderImg from '../assets/founder.png'
 import { SERVICES } from '../data/services.js'
-import { CATEGORIES, WORKS } from '../data/works.js'
+import { WORKS } from '../data/works.js'
 import { BLOG_POSTS } from '../data/blog.js'
 import { COMPANY_INFO, HISTORY, INTERVIEW } from '../data/about.js'
 import WorkThumb from '../components/WorkThumb.jsx'
@@ -57,12 +57,82 @@ const TESTIMONIAL_ROWS = [
 ]
 
 export default function Top() {
-  const [worksCategory, setWorksCategory] = useState('all')
+  const worksGridRef = useRef(null)
+  const [worksVisible, setWorksVisible] = useState(false)
+  const [worksSettled, setWorksSettled] = useState(false)
+  const [activeWorkIndex, setActiveWorkIndex] = useState(0)
 
-  const filteredWorks = useMemo(
-    () => (worksCategory === 'all' ? WORKS : WORKS.filter((w) => w.category === worksCategory)),
-    [worksCategory],
-  )
+  useEffect(() => {
+    const el = worksGridRef.current
+    if (!el) return undefined
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return
+          setWorksVisible(true)
+          observer.disconnect()
+        })
+      },
+      { threshold: 0.2 },
+    )
+
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [])
+
+  useEffect(() => {
+    if (!worksVisible) return undefined
+    const el = worksGridRef.current
+    if (!el) return undefined
+
+    if (window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) {
+      setWorksSettled(true)
+      return undefined
+    }
+
+    const handleEnd = (e) => {
+      if (e.target !== el || e.propertyName !== 'transform') return
+      setWorksSettled(true)
+    }
+    el.addEventListener('transitionend', handleEnd)
+    return () => el.removeEventListener('transitionend', handleEnd)
+  }, [worksVisible])
+
+  useEffect(() => {
+    const el = worksGridRef.current
+    if (!el) return undefined
+
+    const handleScroll = () => {
+      const cards = Array.from(el.children)
+      if (cards.length === 0) return
+      const center = el.scrollLeft + el.clientWidth / 2
+      let closestIndex = 0
+      let closestDist = Infinity
+      cards.forEach((card, i) => {
+        const cardCenter = card.offsetLeft + card.offsetWidth / 2
+        const dist = Math.abs(cardCenter - center)
+        if (dist < closestDist) {
+          closestDist = dist
+          closestIndex = i
+        }
+      })
+      setActiveWorkIndex(closestIndex)
+    }
+
+    el.addEventListener('scroll', handleScroll, { passive: true })
+    return () => el.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  const scrollToWork = (index) => {
+    const el = worksGridRef.current
+    const card = el?.children[index]
+    if (!el || !card) return
+    el.scrollTo({
+      left: card.offsetLeft - (el.clientWidth - card.offsetWidth) / 2,
+      behavior: 'smooth',
+    })
+  }
 
   return (
     <>
@@ -176,25 +246,13 @@ export default function Top() {
             <p>Web制作・ビジュアル制作・AI活用開発支援、それぞれの実績をご紹介します。</p>
           </div>
 
-          <div className="works-filter" role="tablist" aria-label="実績カテゴリ">
-            {CATEGORIES.map((c) => (
-              <button
-                key={c.key}
-                type="button"
-                role="tab"
-                aria-selected={worksCategory === c.key}
-                className={`works-filter-btn ${worksCategory === c.key ? 'is-active' : ''}`}
-                onClick={() => setWorksCategory(c.key)}
-              >
-                {c.label}
-              </button>
-            ))}
-          </div>
-
-          <div className="grid works-grid">
-            {filteredWorks.map((work, index) => (
+          <div
+            className={`works-grid ${worksVisible ? 'is-visible' : ''} ${worksSettled ? 'is-settled' : ''}`}
+            ref={worksGridRef}
+          >
+            {WORKS.map((work) => (
               <Link to={`/works/${work.id}`} className="card work-card" key={work.id}>
-                <WorkThumb work={work} index={index} />
+                <WorkThumb work={work} />
                 <div className="work-card-body">
                   <p className="work-card-tag">{work.industry}</p>
                   <p className="work-card-title">{work.title}</p>
@@ -204,7 +262,19 @@ export default function Top() {
             ))}
           </div>
 
-          {filteredWorks.length === 0 && <p className="works-empty">該当する実績がありません。</p>}
+          <div className="works-dots" role="tablist" aria-label="制作実績スクロール位置">
+            {WORKS.map((work, i) => (
+              <button
+                key={work.id}
+                type="button"
+                role="tab"
+                aria-selected={i === activeWorkIndex}
+                aria-label={`${i + 1}件目へスクロール`}
+                className={`works-dot ${i === activeWorkIndex ? 'is-active' : ''}`}
+                onClick={() => scrollToWork(i)}
+              />
+            ))}
+          </div>
         </div>
       </section>
 

@@ -1,39 +1,71 @@
-.works-filter {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 40px;
-}
-
-.works-filter-btn {
-  padding: 10px 20px;
-  border-radius: 0;
-  border: 1.5px solid var(--gray-200);
-  background: var(--white);
-  color: var(--gray-700);
-  font-size: 13.5px;
-  font-weight: 700;
-  transition: all 0.2s ease;
-}
-
-.works-filter-btn:hover {
-  border-color: var(--blue);
-  color: var(--blue);
-}
-
-.works-filter-btn.is-active {
-  background: var(--gradient);
-  border-color: transparent;
-  color: var(--white);
-}
-
 .works-grid {
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 24px;
+  overflow-x: visible;
+  padding-bottom: 8px;
+  transform: translateX(40vw);
+  opacity: 0;
+  transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.8s ease;
+  scrollbar-width: none;
+}
+
+.works-grid::-webkit-scrollbar {
+  display: none;
+}
+
+.works-grid.is-settled {
+  overflow-x: auto;
+}
+
+.works-grid.is-visible {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.works-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.works-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 1.5px solid var(--ink);
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.works-dot:hover {
+  transform: scale(1.2);
+}
+
+.works-dot.is-active {
+  background-color: var(--ink);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .works-grid {
+    transform: none;
+    opacity: 1;
+    transition: none;
+  }
 }
 
 .work-card {
   display: block;
+  flex: 0 0 240px;
   padding: 10px;
+}
+
+.work-card .work-thumb {
+  aspect-ratio: 1 / 1.618;
 }
 
 .work-card-body {
@@ -58,20 +90,8 @@
   color: var(--gray-500);
 }
 
-.works-empty {
-  text-align: center;
-  padding: 60px 0;
-  color: var(--gray-400);
-}
-
-@media (max-width: 960px) {
-  .works-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
 @media (max-width: 640px) {
-  .works-grid {
-    grid-template-columns: 1fr;
+  .work-card {
+    flex-basis: 260px;
   }
 }
