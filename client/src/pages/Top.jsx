@@ -268,7 +268,13 @@ export default function Top() {
             onClickCapture={handleWorksClickCapture}
           >
             {WORKS_LOOPED.map((work, i) => (
-              <Link to={`/works/${work.id}`} className="card work-card" key={i}>
+              <Link
+                to={`/works/${work.id}`}
+                className="card work-card"
+                key={i}
+                draggable={false}
+                onDragStart={(e) => e.preventDefault()}
+              >
                 <WorkThumb work={work} />
                 <div className="work-card-body">
                   <p className="work-card-tag">{work.industry}</p>

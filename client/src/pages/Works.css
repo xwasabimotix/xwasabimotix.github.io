@@ -33,6 +33,11 @@
   pointer-events: none;
 }
 
+.works-grid .work-card {
+  -webkit-user-drag: none;
+  user-drag: none;
+}
+
 .works-grid.is-visible {
   transform: translateX(0);
 }
