@@ -1,7 +1,7 @@
 .works-grid {
   display: flex;
   flex-wrap: nowrap;
-  align-items: flex-start;
+  align-items: center;
   gap: 24px;
   /* 左端はcontainerの内側にそのまま揃え、右端だけ画面の実際の端まで伸ばす */
   width: calc(100vw - max((100vw - 1160px) / 2, 0px) - 24px);
@@ -78,8 +78,7 @@
 .work-card {
   display: flex;
   flex-direction: column;
-  flex: 0 0 auto;
-  height: min(72vh, 760px);
+  flex: 0 0 480px;
   aspect-ratio: 1 / 1.618;
   padding: 10px;
 }
@@ -114,6 +113,6 @@
 
 @media (max-width: 640px) {
   .work-card {
-    height: min(60vh, 560px);
+    flex-basis: 320px;
   }
 }
