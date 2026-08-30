@@ -63,7 +63,7 @@
 .work-card {
   display: flex;
   flex-direction: column;
-  flex: 0 0 240px;
+  flex: 0 0 360px;
   aspect-ratio: 1 / 1.618;
   padding: 10px;
 }
@@ -98,6 +98,6 @@
 
 @media (max-width: 640px) {
   .work-card {
-    flex-basis: 260px;
+    flex-basis: 390px;
   }
 }
