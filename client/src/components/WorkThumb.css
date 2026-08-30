@@ -17,11 +17,6 @@
   background: radial-gradient(120% 120% at 100% 0%, rgba(255, 255, 255, 0.22), transparent 60%);
 }
 
-.work-thumb--photo {
-  background-size: cover;
-  background-position: center;
-}
-
 .work-thumb--photo::after {
   background: linear-gradient(180deg, rgba(10, 14, 26, 0.1) 0%, rgba(10, 14, 26, 0.65) 100%);
 }
@@ -57,4 +52,11 @@
 
 .work-thumb--pink {
   background: linear-gradient(150deg, #7a1c5e 0%, #d63f9c 55%, #ff8ac2 100%);
+}
+
+/* アクセント色のbackgroundショートハンドの後に置き、位置/サイズの上書きを確実に効かせる */
+.work-thumb--photo {
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position: center;
 }
