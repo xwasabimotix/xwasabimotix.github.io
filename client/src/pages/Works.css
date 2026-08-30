@@ -5,8 +5,7 @@
   overflow-x: visible;
   padding-bottom: 8px;
   transform: translateX(40vw);
-  opacity: 0;
-  transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.8s ease;
+  transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
   scrollbar-width: none;
 }
 
@@ -20,7 +19,6 @@
 
 .works-grid.is-visible {
   transform: translateX(0);
-  opacity: 1;
 }
 
 .works-dots {
@@ -53,7 +51,6 @@
 @media (prefers-reduced-motion: reduce) {
   .works-grid {
     transform: none;
-    opacity: 1;
     transition: none;
   }
 }
