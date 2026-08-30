@@ -2,6 +2,10 @@
   color: var(--blue-2);
 }
 
+.numbers-section .eyebrow--light {
+  color: rgba(255, 255, 255, 0.5);
+}
+
 .bg-soft {
   background: var(--gray-50);
 }
