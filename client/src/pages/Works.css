@@ -8,8 +8,10 @@
   flex-wrap: nowrap;
   align-items: center;
   gap: 24px;
-  /* 左端はcontainerの内側にそのまま揃え、右端だけ画面の実際の端まで伸ばす */
-  width: calc(100vw - max((100vw - 1160px) / 2, 0px) - 24px);
+  /* 左右とも画面の実際の端までフルブリードさせる */
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  padding-left: calc(max((100vw - 1160px) / 2, 0px) + 24px);
   padding-right: 24px;
   padding-bottom: 8px;
   box-sizing: border-box;
