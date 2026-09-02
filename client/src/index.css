@@ -105,19 +105,15 @@ button {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
+  font-size: clamp(48px, 9vw, 120px);
+  font-weight: 800;
+  letter-spacing: normal;
   color: var(--blue);
   text-transform: uppercase;
 }
 
 .eyebrow::before {
-  content: '';
-  width: 22px;
-  height: 2px;
-  background: var(--gradient);
-  border-radius: 0;
+  content: none;
 }
 
 .section {
@@ -134,8 +130,8 @@ button {
 }
 
 .section-head h2 {
-  font-size: clamp(26px, 3.4vw, 38px);
-  margin-top: 10px;
+  font-size: 13px;
+  margin-top: 6px;
 }
 
 .section-head p {
