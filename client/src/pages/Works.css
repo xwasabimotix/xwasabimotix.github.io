@@ -8,6 +8,7 @@
   flex-wrap: nowrap;
   align-items: center;
   gap: 24px;
+  margin-top: 32px;
   /* 左右とも画面の実際の端までフルブリードさせる */
   width: 100vw;
   margin-left: calc(50% - 50vw);

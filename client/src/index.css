@@ -102,18 +102,25 @@ button {
 }
 
 .eyebrow {
+  /* cache-bust: force a new asset hash */
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-size: clamp(48px, 9vw, 120px);
+  /* Heroの「CREATE MORE.」見出しと同じ字サイズ */
+  font-size: clamp(77.4px, calc(53.61px + 2.766vw), 120px);
   font-weight: 800;
   letter-spacing: normal;
-  color: var(--blue);
+  color: var(--blue-2);
   text-transform: uppercase;
 }
 
 .eyebrow::before {
   content: none;
+}
+
+.eyebrow--center {
+  display: flex;
+  justify-content: center;
 }
 
 .section {
@@ -124,23 +131,26 @@ button {
   padding: 64px 0;
 }
 
-.section-head {
-  max-width: 640px;
-  margin: 0 0 44px;
-}
-
-.section-head h2 {
-  font-size: 13px;
+.section-title {
   margin-top: 6px;
+  font-size: 13px;
+  max-width: 680px;
 }
 
-.section-head p {
+.section-title--center {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.section-lead {
   margin-top: 14px;
   color: var(--gray-700);
   font-size: 16px;
+  max-width: 640px;
 }
 
-.section-head--center {
+.section-lead--center {
   margin-left: auto;
   margin-right: auto;
   text-align: center;
@@ -304,6 +314,12 @@ button {
   color: rgba(255, 255, 255, 0.65);
   font-size: 15.5px;
   max-width: 560px;
+}
+
+@media (max-width: 860px) {
+  .eyebrow {
+    font-size: clamp(48px, 9vw, 120px);
+  }
 }
 
 @media (max-width: 780px) {

@@ -1,5 +1,6 @@
 /* ---- 代表メッセージ ---- */
 .message-grid {
+  margin-top: 32px;
   max-width: 720px;
 }
 

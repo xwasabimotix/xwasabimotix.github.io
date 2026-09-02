@@ -29,13 +29,13 @@ export default function Contact() {
   return (
     <section className="section section--tight bg-soft" id="contact">
       <div className="container">
-        <div className="section-head">
-          <p className="eyebrow">CONTACT</p>
-          <h2>
-            <FlyInText as="span" text="お問い合わせ" />
-          </h2>
-          <p>Web制作からビジュアル制作、AI活用開発支援まで。小さなご相談から承ります。</p>
-        </div>
+        <p className="eyebrow">CONTACT</p>
+        <h2 className="section-title">
+          <FlyInText as="span" text="お問い合わせ" />
+        </h2>
+        <p className="section-lead">
+          Web制作からビジュアル制作、AI活用開発支援まで。小さなご相談から承ります。
+        </p>
 
         <div className="contact-grid">
           <div className="contact-info">

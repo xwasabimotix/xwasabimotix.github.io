@@ -223,9 +223,7 @@ export default function Top() {
       {/* ABOUT */}
       <section className="section" id="about">
         <div className="container">
-          <div className="section-head">
-            <p className="eyebrow">ABOUT</p>
-          </div>
+          <p className="eyebrow">ABOUT</p>
           <div className="message-grid">
             <div>
               <h3 className="message-heading">
@@ -252,13 +250,13 @@ export default function Top() {
       {/* WORKS */}
       <section className="section bg-soft works-section" id="works">
         <div className="container">
-          <div className="section-head section-head--center">
-            <p className="eyebrow">WORKS</p>
-            <h2>
-              <FlyInText as="span" text="制作実績" />
-            </h2>
-            <p>Web制作・ビジュアル制作・AI活用開発支援、それぞれの実績をご紹介します。</p>
-          </div>
+          <p className="eyebrow eyebrow--center">WORKS</p>
+          <h2 className="section-title section-title--center">
+            <FlyInText as="span" text="制作実績" />
+          </h2>
+          <p className="section-lead section-lead--center">
+            Web制作・ビジュアル制作・AI活用開発支援、それぞれの実績をご紹介します。
+          </p>
 
           <div
             className={`works-grid ${worksVisible ? 'is-visible' : ''} ${worksSettled ? 'is-settled' : ''}`}
@@ -307,12 +305,10 @@ export default function Top() {
       {/* 会社概要 */}
       <section className="section section--tight bg-soft">
         <div className="container">
-          <div className="section-head">
-            <p className="eyebrow">COMPANY</p>
-            <h2>
-              <FlyInText as="span" text="会社概要" />
-            </h2>
-          </div>
+          <p className="eyebrow">COMPANY</p>
+          <h2 className="section-title">
+            <FlyInText as="span" text="会社概要" />
+          </h2>
           <table className="company-table">
             <tbody>
               {COMPANY_INFO.map((row) => (
@@ -329,12 +325,10 @@ export default function Top() {
       {/* 沿革 */}
       <section className="section">
         <div className="container">
-          <div className="section-head">
-            <p className="eyebrow">HISTORY</p>
-            <h2>
-              <FlyInText as="span" text="沿革" />
-            </h2>
-          </div>
+          <p className="eyebrow">HISTORY</p>
+          <h2 className="section-title">
+            <FlyInText as="span" text="沿革" />
+          </h2>
           <ol className="history-list">
             {HISTORY.map((h) => (
               <li key={h.year}>
@@ -349,12 +343,10 @@ export default function Top() {
       {/* INTERVIEW */}
       <section className="section section--tight bg-soft">
         <div className="container">
-          <div className="section-head">
-            <p className="eyebrow">INTERVIEW</p>
-            <h2>
-              <FlyInText as="span" text="代表インタビュー" />
-            </h2>
-          </div>
+          <p className="eyebrow">INTERVIEW</p>
+          <h2 className="section-title">
+            <FlyInText as="span" text="代表インタビュー" />
+          </h2>
           <div className="interview-list">
             {INTERVIEW.map((item) => (
               <div className="interview-item" key={item.q}>
@@ -380,15 +372,13 @@ export default function Top() {
       {/* SERVICE */}
       <section className="section section--tight bg-soft" id="service">
         <div className="container">
-          <div className="section-head">
-            <p className="eyebrow">SERVICE</p>
-            <h2>
-              <FlyInText as="span" text="事業内容" />
-            </h2>
-            <p>
-              Web制作・ビジュアル制作(3D/イラスト)・AI活用開発支援の3本柱で、企画から実制作までワンストップで対応します。
-            </p>
-          </div>
+          <p className="eyebrow">SERVICE</p>
+          <h2 className="section-title">
+            <FlyInText as="span" text="事業内容" />
+          </h2>
+          <p className="section-lead">
+            Web制作・ビジュアル制作(3D/イラスト)・AI活用開発支援の3本柱で、企画から実制作までワンストップで対応します。
+          </p>
           <div className="grid service-list-grid">
             {SERVICES.map((s, i) => (
               <Link to={`/service/${s.slug}`} className="card service-list-card" key={s.slug}>
@@ -407,12 +397,10 @@ export default function Top() {
       <section className="section section--tight bg-navy numbers-section">
         <MoreFiller className="numbers-filler" />
         <div className="container">
-          <div className="section-head section-head--center">
-            <p className="eyebrow eyebrow--light">NUMBERS</p>
-            <h2>
-              <FlyInText as="span" text="数字で見る実績" />
-            </h2>
-          </div>
+          <p className="eyebrow eyebrow--light eyebrow--center">NUMBERS</p>
+          <h2 className="section-title section-title--center">
+            <FlyInText as="span" text="数字で見る実績" />
+          </h2>
           <div className="grid stats-grid">
             {STATS.map((s) => (
               <div className="stat-card" key={s.label}>
@@ -429,9 +417,9 @@ export default function Top() {
 
       {/* お客様の声 */}
       <section className="section">
-        <div className="section-head section-head--center container">
-          <p className="eyebrow">VOICE</p>
-          <h2>
+        <div className="container">
+          <p className="eyebrow eyebrow--center">VOICE</p>
+          <h2 className="section-title section-title--center">
             <FlyInText as="span" text="お客様の声" />
           </h2>
         </div>
@@ -454,12 +442,10 @@ export default function Top() {
       {/* ブログ最新記事 */}
       <section className="section section--tight bg-soft">
         <div className="container">
-          <div className="section-head">
-            <p className="eyebrow">BLOG</p>
-            <h2>
-              <FlyInText as="span" text="最新記事" />
-            </h2>
-          </div>
+          <p className="eyebrow">BLOG</p>
+          <h2 className="section-title">
+            <FlyInText as="span" text="最新記事" />
+          </h2>
           <div className="grid blog-grid">
             {BLOG_POSTS.map((post) => (
               <article className="card blog-card" key={post.id}>

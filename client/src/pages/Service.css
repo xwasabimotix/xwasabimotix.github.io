@@ -1,4 +1,5 @@
 .service-list-grid {
+  margin-top: 32px;
   grid-template-columns: repeat(3, 1fr);
 }
 
