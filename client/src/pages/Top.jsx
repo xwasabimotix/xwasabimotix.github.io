@@ -252,7 +252,7 @@ export default function Top() {
       {/* WORKS */}
       <section className="section bg-soft works-section" id="works">
         <div className="container">
-          <div className="section-head">
+          <div className="section-head section-head--center">
             <p className="eyebrow">WORKS</p>
             <h2>
               <FlyInText as="span" text="制作実績" />

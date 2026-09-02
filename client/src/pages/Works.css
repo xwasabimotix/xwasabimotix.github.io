@@ -3,6 +3,19 @@
   border-bottom: 1px solid var(--gray-200);
 }
 
+.works-section .eyebrow {
+  font-size: 65px;
+}
+
+.works-section .eyebrow::before {
+  content: none;
+}
+
+.works-section .section-head h2 {
+  font-size: 13px;
+  margin-top: 6px;
+}
+
 .works-grid {
   display: flex;
   flex-wrap: nowrap;
