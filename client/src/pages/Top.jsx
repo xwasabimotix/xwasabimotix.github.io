@@ -307,10 +307,12 @@ export default function Top() {
       {/* 会社概要 */}
       <section className="section section--tight bg-soft">
         <div className="container">
-          <p className="eyebrow">COMPANY</p>
-          <h2 className="section-title">
-            <FlyInText as="span" text="会社概要" />
-          </h2>
+          <div className="section-head">
+            <p className="eyebrow">COMPANY</p>
+            <h2>
+              <FlyInText as="span" text="会社概要" />
+            </h2>
+          </div>
           <table className="company-table">
             <tbody>
               {COMPANY_INFO.map((row) => (
@@ -327,10 +329,12 @@ export default function Top() {
       {/* 沿革 */}
       <section className="section">
         <div className="container">
-          <p className="eyebrow">HISTORY</p>
-          <h2 className="section-title">
-            <FlyInText as="span" text="沿革" />
-          </h2>
+          <div className="section-head">
+            <p className="eyebrow">HISTORY</p>
+            <h2>
+              <FlyInText as="span" text="沿革" />
+            </h2>
+          </div>
           <ol className="history-list">
             {HISTORY.map((h) => (
               <li key={h.year}>
@@ -345,10 +349,12 @@ export default function Top() {
       {/* INTERVIEW */}
       <section className="section section--tight bg-soft">
         <div className="container">
-          <p className="eyebrow">INTERVIEW</p>
-          <h2 className="section-title">
-            <FlyInText as="span" text="代表インタビュー" />
-          </h2>
+          <div className="section-head">
+            <p className="eyebrow">INTERVIEW</p>
+            <h2>
+              <FlyInText as="span" text="代表インタビュー" />
+            </h2>
+          </div>
           <div className="interview-list">
             {INTERVIEW.map((item) => (
               <div className="interview-item" key={item.q}>
