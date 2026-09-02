@@ -4,7 +4,9 @@
 }
 
 .works-section .eyebrow {
-  font-size: 65px;
+  font-size: clamp(48px, 9vw, 120px);
+  font-weight: 800;
+  letter-spacing: normal;
 }
 
 .works-section .eyebrow::before {
