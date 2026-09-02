@@ -448,13 +448,11 @@ export default function Top() {
       {/* ブログ最新記事 */}
       <section className="section section--tight bg-soft">
         <div className="container">
-          <div className="section-head section-head--row">
-            <div>
-              <p className="eyebrow">BLOG</p>
-              <h2>
-                <FlyInText as="span" text="最新記事" />
-              </h2>
-            </div>
+          <div className="section-head">
+            <p className="eyebrow">BLOG</p>
+            <h2>
+              <FlyInText as="span" text="最新記事" />
+            </h2>
           </div>
           <div className="grid blog-grid">
             {BLOG_POSTS.map((post) => (

@@ -84,20 +84,6 @@
   font-size: 14.5px;
 }
 
-/* ---- Section head row variant ---- */
-.section-head--row {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 16px;
-  margin-bottom: 36px;
-}
-
-.section-head--row .section-head,
-.section-head--row > div {
-  margin: 0;
-}
-
 /* ---- Numbers ---- */
 .numbers-section {
   position: relative;
@@ -272,11 +258,6 @@
 }
 
 @media (max-width: 640px) {
-  .section-head--row {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
   .reasons-grid,
   .stats-grid,
   .blog-grid {
