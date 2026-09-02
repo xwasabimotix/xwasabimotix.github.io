@@ -127,6 +127,14 @@
   text-align: center;
 }
 
+.stats-grid .stat-card:nth-child(2) {
+  transform: translateY(-30px);
+}
+
+.stats-grid .stat-card:nth-child(3) {
+  transform: translateY(-60px);
+}
+
 .stat-icon {
   width: 64px;
   height: 64px;
