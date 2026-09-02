@@ -106,8 +106,8 @@ button {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  /* Heroの「CREATE MORE.」見出しと同じ字サイズ */
-  font-size: clamp(77.4px, calc(53.61px + 2.766vw), 120px);
+  /* MoreFillerの「MORE.」と同じ字サイズ */
+  font-size: clamp(48px, 9vw, 120px);
   font-weight: 800;
   line-height: 1;
   letter-spacing: normal;
@@ -317,12 +317,6 @@ button {
   color: rgba(255, 255, 255, 0.65);
   font-size: 15.5px;
   max-width: 560px;
-}
-
-@media (max-width: 860px) {
-  .eyebrow {
-    font-size: clamp(48px, 9vw, 120px);
-  }
 }
 
 @media (max-width: 780px) {
