@@ -4,8 +4,6 @@
   left: 0;
   right: 0;
   z-index: 100;
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
 }
 
 

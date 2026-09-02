@@ -12,6 +12,8 @@ const NAV_ITEMS = [
 const SCROLL_START = 100
 const SCROLL_RANGE = 200
 const MAX_ALPHA = 0.8
+const BASE_BLUR_PX = 16
+const MIN_BLUR_RATIO = 0.5
 
 export default function Header() {
   const [open, setOpen] = useState(false)
@@ -34,7 +36,11 @@ export default function Header() {
   return (
     <header
       className={`site-header ${scrollProgress > 0.5 ? 'is-light' : ''}`}
-      style={{ backgroundColor: `rgba(255, 255, 255, ${scrollProgress * MAX_ALPHA})` }}
+      style={{
+        backgroundColor: `rgba(255, 255, 255, ${scrollProgress * MAX_ALPHA})`,
+        backdropFilter: `blur(${BASE_BLUR_PX * (MIN_BLUR_RATIO + (1 - MIN_BLUR_RATIO) * scrollProgress)}px)`,
+        WebkitBackdropFilter: `blur(${BASE_BLUR_PX * (MIN_BLUR_RATIO + (1 - MIN_BLUR_RATIO) * scrollProgress)}px)`,
+      }}
     >
       <div className="container site-header-inner">
         <Logo variant="header" />
