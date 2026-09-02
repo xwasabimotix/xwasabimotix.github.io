@@ -109,6 +109,7 @@ button {
   /* Heroの「CREATE MORE.」見出しと同じ字サイズ */
   font-size: clamp(77.4px, calc(53.61px + 2.766vw), 120px);
   font-weight: 800;
+  line-height: 1;
   letter-spacing: normal;
   text-transform: uppercase;
   color: var(--blue);
@@ -132,7 +133,7 @@ button {
 }
 
 .section-title {
-  margin-top: 6px;
+  margin-top: 2px;
   font-size: 15px;
   font-weight: 400;
   color: var(--gray-700);
