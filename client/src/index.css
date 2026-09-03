@@ -111,16 +111,13 @@ button {
   line-height: 1;
   letter-spacing: normal;
   text-transform: uppercase;
-  /* オフィス写真を文字の切り抜きにし、紺色を50%の濃度で重ねる */
-  background-image: linear-gradient(rgba(6, 10, 23, 0.5), rgba(6, 10, 23, 0.5)),
-    url('./assets/hero-office.png');
-  background-repeat: no-repeat, no-repeat;
-  background-size: cover, cover;
-  background-position: center, center;
+  /* ヘッダーロゴの「TECC」と同じグラデーション */
+  background: var(--gradient);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
   -webkit-text-fill-color: transparent;
+  filter: brightness(1.3);
 }
 
 .eyebrow::before {
