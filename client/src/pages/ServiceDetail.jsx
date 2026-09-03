@@ -33,7 +33,7 @@ export default function ServiceDetail() {
     <>
       <section className="page-hero bg-navy">
         <div className="container">
-          <p className="eyebrow eyebrow--light">SERVICE</p>
+          <p className="eyebrow">SERVICE</p>
           <h1>{service.label}</h1>
           <p className="page-hero-lead">{service.lead}</p>
         </div>

@@ -111,7 +111,15 @@ button {
   line-height: 1;
   letter-spacing: normal;
   text-transform: uppercase;
-  color: var(--blue);
+  /* オフィス写真を文字の切り抜きにする */
+  background-image: url('./assets/hero-office.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
 }
 
 .eyebrow::before {

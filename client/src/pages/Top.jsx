@@ -397,7 +397,7 @@ export default function Top() {
       <section className="section section--tight bg-navy numbers-section">
         <MoreFiller className="numbers-filler" />
         <div className="container">
-          <p className="eyebrow eyebrow--light">NUMBERS</p>
+          <p className="eyebrow">NUMBERS</p>
           <h2 className="section-title">
             <FlyInText as="span" text="数字で見る実績" />
           </h2>
