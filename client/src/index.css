@@ -106,8 +106,7 @@ button {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  /* MoreFillerの「MORE.」と同じ字サイズ */
-  font-size: clamp(48px, 9vw, 120px);
+  font-size: clamp(40px, 7.5vw, 100px);
   font-weight: 800;
   line-height: 1;
   letter-spacing: normal;
