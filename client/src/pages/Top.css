@@ -80,6 +80,7 @@
 .numbers-section {
   position: relative;
   overflow: hidden;
+  padding: 140px 0;
   background: linear-gradient(90deg, var(--navy) 0%, var(--navy-3) 55%, #143066 100%);
 }
 
@@ -151,6 +152,14 @@
   margin-top: 8px;
   color: rgba(255, 255, 255, 0.6);
   font-size: 14px;
+}
+
+.stat-desc {
+  margin: 16px auto 0;
+  max-width: 260px;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 13.5px;
+  line-height: 1.9;
 }
 
 /* ---- Testimonials ---- */

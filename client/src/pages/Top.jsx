@@ -24,9 +24,31 @@ const WORKS_LOOPED = Array.from({ length: WORKS_LOOP_COUNT }, () => WORKS).flat(
 const WORK_CARD_IMAGES = [workPhotoA, workPhotoB]
 
 const STATS = [
-  { value: 109, decimals: 0, suffix: '', label: '制作実績数', icon: 'arrow' },
-  { value: 15.9, decimals: 1, suffix: '日', label: '平均納品日数', icon: 'calendar' },
-  { value: 74.2, decimals: 1, suffix: '%', label: 'リピート率', icon: 'ring', percent: 74.2 },
+  {
+    value: 109,
+    decimals: 0,
+    suffix: '',
+    label: '制作実績数',
+    icon: 'arrow',
+    desc: 'Web制作からビジュアル制作、AI活用支援まで、業種を問わず数多くのプロジェクトを手がけてきました。ひとつひとつの案件に丁寧に向き合い、着実に実績を積み重ねています。',
+  },
+  {
+    value: 15.9,
+    decimals: 1,
+    suffix: '日',
+    label: '平均納品日数',
+    icon: 'calendar',
+    desc: 'スピーディな制作体制と、企画段階からの緊密な連携により、無駄のないスケジュールを実現。急なご依頼にも柔軟に対応し、品質を保ちながら短納期でお届けします。',
+  },
+  {
+    value: 74.2,
+    decimals: 1,
+    suffix: '%',
+    label: 'リピート率',
+    icon: 'ring',
+    percent: 74.2,
+    desc: '納品後も継続的にご相談いただけるパートナーシップを大切にしています。高い満足度と信頼関係が、多くのお客様からのリピートにつながっています。',
+  },
 ]
 
 const TESTIMONIALS = [
@@ -409,6 +431,7 @@ export default function Top() {
                   <CountUp value={s.value} decimals={s.decimals} suffix={s.suffix} />
                 </p>
                 <p className="stat-label">{s.label}</p>
+                <p className="stat-desc">{s.desc}</p>
               </div>
             ))}
           </div>
