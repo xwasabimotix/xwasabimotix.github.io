@@ -1,5 +1,6 @@
 import { useLayoutEffect, useRef, useState } from 'react'
 import { SERVICES } from '../data/services.js'
+import Eyebrow from './Eyebrow.jsx'
 import './Contact.css'
 
 export default function Contact() {
@@ -28,7 +29,7 @@ export default function Contact() {
   return (
     <section className="section section--tight bg-soft" id="contact">
       <div className="container">
-        <p className="eyebrow">CONTACT</p>
+        <Eyebrow text="CONTACT" />
         <h2 className="section-title">お問い合わせ</h2>
         <p className="section-lead">
           Web制作からビジュアル制作、AI活用開発支援まで。小さなご相談から承ります。

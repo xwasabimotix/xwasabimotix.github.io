@@ -3,6 +3,7 @@ import { Link, Navigate, useParams } from 'react-router-dom'
 import { SERVICES, getServiceBySlug } from '../data/services.js'
 import { WORKS } from '../data/works.js'
 import WorkThumb from '../components/WorkThumb.jsx'
+import Eyebrow from '../components/Eyebrow.jsx'
 import './ServiceDetail.css'
 
 const CATEGORY_BY_SLUG = { web: 'web', visual: '3d', ai: 'ai' }
@@ -33,7 +34,7 @@ export default function ServiceDetail() {
     <>
       <section className="page-hero bg-navy">
         <div className="container">
-          <p className="eyebrow">SERVICE</p>
+          <Eyebrow text="SERVICE" />
           <h1>{service.label}</h1>
           <p className="page-hero-lead">{service.lead}</p>
         </div>
