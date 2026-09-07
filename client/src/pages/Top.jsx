@@ -10,7 +10,6 @@ import { COMPANY_INFO, HISTORY, INTERVIEW } from '../data/about.js'
 import WorkThumb from '../components/WorkThumb.jsx'
 import StatIcon from '../components/StatIcon.jsx'
 import CountUp from '../components/CountUp.jsx'
-import FlyInText from '../components/FlyInText.jsx'
 import Hero from '../components/Hero.jsx'
 import Contact from '../components/Contact.jsx'
 import MoreFiller from '../components/MoreFiller.jsx'
@@ -273,9 +272,7 @@ export default function Top() {
       <section className="section bg-soft works-section" id="works">
         <div className="container">
           <p className="eyebrow eyebrow--center">WORKS</p>
-          <h2 className="section-title section-title--center">
-            <FlyInText as="span" text="制作実績" />
-          </h2>
+          <h2 className="section-title section-title--center">制作実績</h2>
           <p className="section-lead section-lead--center">
             Web制作・ビジュアル制作・AI活用開発支援、それぞれの実績をご紹介します。
           </p>
@@ -328,9 +325,7 @@ export default function Top() {
       <section className="section section--tight bg-soft">
         <div className="container">
           <p className="eyebrow">COMPANY</p>
-          <h2 className="section-title">
-            <FlyInText as="span" text="会社概要" />
-          </h2>
+          <h2 className="section-title">会社概要</h2>
           <table className="company-table">
             <tbody>
               {COMPANY_INFO.map((row) => (
@@ -348,9 +343,7 @@ export default function Top() {
       <section className="section">
         <div className="container">
           <p className="eyebrow">HISTORY</p>
-          <h2 className="section-title">
-            <FlyInText as="span" text="沿革" />
-          </h2>
+          <h2 className="section-title">沿革</h2>
           <ol className="history-list">
             {HISTORY.map((h) => (
               <li key={h.year}>
@@ -366,9 +359,7 @@ export default function Top() {
       <section className="section section--tight bg-soft">
         <div className="container">
           <p className="eyebrow">INTERVIEW</p>
-          <h2 className="section-title">
-            <FlyInText as="span" text="代表インタビュー" />
-          </h2>
+          <h2 className="section-title">代表インタビュー</h2>
           <div className="interview-list">
             {INTERVIEW.map((item) => (
               <div className="interview-item" key={item.q}>
@@ -395,9 +386,7 @@ export default function Top() {
       <section className="section section--tight bg-soft" id="service">
         <div className="container">
           <p className="eyebrow">SERVICE</p>
-          <h2 className="section-title">
-            <FlyInText as="span" text="事業内容" />
-          </h2>
+          <h2 className="section-title">事業内容</h2>
           <p className="section-lead">
             Web制作・ビジュアル制作(3D/イラスト)・AI活用開発支援の3本柱で、企画から実制作までワンストップで対応します。
           </p>
@@ -420,9 +409,7 @@ export default function Top() {
         <MoreFiller className="numbers-filler" />
         <div className="container">
           <p className="eyebrow">NUMBERS</p>
-          <h2 className="section-title">
-            <FlyInText as="span" text="数字で見る実績" />
-          </h2>
+          <h2 className="section-title">数字で見る実績</h2>
           <div className="grid stats-grid">
             {STATS.map((s) => (
               <div className="stat-card" key={s.label}>
@@ -442,9 +429,7 @@ export default function Top() {
       <section className="section">
         <div className="container">
           <p className="eyebrow eyebrow--center">VOICE</p>
-          <h2 className="section-title section-title--center">
-            <FlyInText as="span" text="お客様の声" />
-          </h2>
+          <h2 className="section-title section-title--center">お客様の声</h2>
         </div>
         <div className="testimonial-marquee-wrap">
           {TESTIMONIAL_ROWS.map((row, i) => (
@@ -466,9 +451,7 @@ export default function Top() {
       <section className="section section--tight bg-soft">
         <div className="container">
           <p className="eyebrow">BLOG</p>
-          <h2 className="section-title">
-            <FlyInText as="span" text="最新記事" />
-          </h2>
+          <h2 className="section-title">最新記事</h2>
           <div className="grid blog-grid">
             {BLOG_POSTS.map((post) => (
               <article className="card blog-card" key={post.id}>

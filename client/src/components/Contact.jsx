@@ -1,6 +1,5 @@
 import { useLayoutEffect, useRef, useState } from 'react'
 import { SERVICES } from '../data/services.js'
-import FlyInText from './FlyInText.jsx'
 import './Contact.css'
 
 export default function Contact() {
@@ -30,9 +29,7 @@ export default function Contact() {
     <section className="section section--tight bg-soft" id="contact">
       <div className="container">
         <p className="eyebrow">CONTACT</p>
-        <h2 className="section-title">
-          <FlyInText as="span" text="お問い合わせ" />
-        </h2>
+        <h2 className="section-title">お問い合わせ</h2>
         <p className="section-lead">
           Web制作からビジュアル制作、AI活用開発支援まで。小さなご相談から承ります。
         </p>
