@@ -45,7 +45,7 @@ export default function Footer() {
       </div>
 
       <div className="container footer-bottom">
-        <p>&copy; {year} SAKAI TECC</p>
+        <p>&copy; {year} tech MORE</p>
       </div>
     </footer>
   )

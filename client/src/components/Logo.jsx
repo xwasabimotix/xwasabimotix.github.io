@@ -3,7 +3,7 @@ import './Logo.css'
 
 export default function Logo({ variant = 'header', showTagline = false }) {
   return (
-    <Link to="/" className={`logo logo--${variant}`} aria-label="SAKAI TECC ホームへ">
+    <Link to="/" className={`logo logo--${variant}`} aria-label="tech MORE ホームへ">
       <span className="logo-mark" aria-hidden="true">
         <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
           <defs>
@@ -27,7 +27,7 @@ export default function Logo({ variant = 'header', showTagline = false }) {
       </span>
       <span className="logo-word">
         <span className="logo-word-main">
-          SAKAI <span className="logo-word-accent">TECC</span>
+          tech <span className="logo-word-accent">MORE</span>
         </span>
         {showTagline && <span className="logo-word-tagline">CREATE THE NEXT.</span>}
       </span>

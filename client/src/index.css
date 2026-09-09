@@ -111,7 +111,7 @@ button {
   line-height: 1;
   letter-spacing: normal;
   text-transform: uppercase;
-  /* ヘッダーロゴの「TECC」と同じグラデーション */
+  /* ヘッダーロゴの「MORE」と同じグラデーション */
   background: var(--gradient);
   -webkit-background-clip: text;
   background-clip: text;
