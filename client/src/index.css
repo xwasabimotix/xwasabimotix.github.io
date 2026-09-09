@@ -118,15 +118,22 @@ button {
 }
 
 /* background-clip:text はフレックスコンテナ自身に付けると効かないため、
-   フレックスアイテムである .scramble-text の方にグラデーションを付ける */
+   フレックスアイテムである .scramble-text の方にグラデーションを付ける。
+   非対応環境では文字が消えないよう、まず塗りつぶし色をフォールバックとして
+   指定し、対応環境のみ@supportsでグラデーション切り抜きに差し替える */
 .eyebrow .scramble-text {
-  /* ヘッダーロゴの「MORE」と同じグラデーション */
-  background: var(--gradient);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  -webkit-text-fill-color: transparent;
-  filter: brightness(1.3);
+  color: var(--blue);
+}
+
+@supports (background-clip: text) or (-webkit-background-clip: text) {
+  .eyebrow .scramble-text {
+    /* ヘッダーロゴの「MORE」と同じグラデーション */
+    background: linear-gradient(135deg, #2f6bff 0%, #17d9ff 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+  }
 }
 
 .eyebrow--center {
