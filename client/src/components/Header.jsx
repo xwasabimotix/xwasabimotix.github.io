@@ -1,9 +1,7 @@
 import { useEffect, useState } from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import Logo from './Logo.jsx'
 import './Header.css'
-
-const NAV_ITEMS = [{ to: '/#about', label: 'ABOUT' }]
 
 const SCROLL_START = 100
 const SCROLL_RANGE = 200
@@ -44,17 +42,20 @@ export default function Header() {
         <nav className={`site-nav ${open ? 'is-open' : ''}`} aria-label="グローバルナビゲーション">
           <ul>
             <li>
-              <NavLink to="/" end onClick={() => setOpen(false)}>
-                TOP
-              </NavLink>
+              <a href="#" onClick={() => setOpen(false)}>
+                リクルート
+              </a>
             </li>
-            {NAV_ITEMS.map((item) => (
-              <li key={item.to}>
-                <Link to={item.to} onClick={() => setOpen(false)}>
-                  {item.label}
-                </Link>
-              </li>
-            ))}
+            <li>
+              <Link to="/#company" onClick={() => setOpen(false)}>
+                会社情報
+              </Link>
+            </li>
+            <li>
+              <Link to="/" onClick={() => setOpen(false)}>
+                ホーム
+              </Link>
+            </li>
           </ul>
           <a href="#contact" className="btn btn-primary btn-sm site-nav-cta" onClick={() => setOpen(false)}>
             相談する

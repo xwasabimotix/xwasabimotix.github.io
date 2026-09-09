@@ -105,7 +105,7 @@ export default function Top() {
       </section>
 
       {/* 会社概要 */}
-      <section className="section section--tight bg-soft">
+      <section className="section section--tight bg-soft" id="company">
         <div className="container">
           <Eyebrow text="COMPANY" />
           <h2 className="section-title">会社概要</h2>
