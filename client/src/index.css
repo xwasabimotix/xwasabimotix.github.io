@@ -111,6 +111,15 @@ button {
   line-height: 1;
   letter-spacing: normal;
   text-transform: uppercase;
+}
+
+.eyebrow::before {
+  content: none;
+}
+
+/* background-clip:text はフレックスコンテナ自身に付けると効かないため、
+   フレックスアイテムである .scramble-text の方にグラデーションを付ける */
+.eyebrow .scramble-text {
   /* ヘッダーロゴの「MORE」と同じグラデーション */
   background: var(--gradient);
   -webkit-background-clip: text;
@@ -118,10 +127,6 @@ button {
   color: transparent;
   -webkit-text-fill-color: transparent;
   filter: brightness(1.3);
-}
-
-.eyebrow::before {
-  content: none;
 }
 
 .eyebrow--center {
