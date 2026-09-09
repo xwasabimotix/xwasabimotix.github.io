@@ -275,8 +275,6 @@
 
 /* ---- Scroll offset for sticky header anchor targets ---- */
 #about,
-#works,
-#service,
 #contact {
   scroll-margin-top: 92px;
 }

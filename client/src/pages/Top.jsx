@@ -1,13 +1,6 @@
-import { useEffect, useLayoutEffect, useRef, useState } from 'react'
-import { Link } from 'react-router-dom'
 import founderImg from '../assets/founder.png'
-import workPhotoA from '../assets/Japanese Kaiseki Trio Overhead.png'
-import workPhotoB from '../assets/Pastel Konpeitō Jars on Wood.png'
-import { SERVICES } from '../data/services.js'
-import { WORKS } from '../data/works.js'
 import { BLOG_POSTS } from '../data/blog.js'
 import { COMPANY_INFO, HISTORY, INTERVIEW } from '../data/about.js'
-import WorkThumb from '../components/WorkThumb.jsx'
 import StatIcon from '../components/StatIcon.jsx'
 import CountUp from '../components/CountUp.jsx'
 import Eyebrow from '../components/Eyebrow.jsx'
@@ -15,13 +8,7 @@ import Hero from '../components/Hero.jsx'
 import Contact from '../components/Contact.jsx'
 import MoreFiller from '../components/MoreFiller.jsx'
 import './Top.css'
-import './Service.css'
-import './Works.css'
 import './About.css'
-
-const WORKS_LOOP_COUNT = 3
-const WORKS_LOOPED = Array.from({ length: WORKS_LOOP_COUNT }, () => WORKS).flat()
-const WORK_CARD_IMAGES = [workPhotoA, workPhotoB]
 
 const STATS = [
   {
@@ -85,158 +72,6 @@ const TESTIMONIAL_ROWS = [
 ]
 
 export default function Top() {
-  const worksGridRef = useRef(null)
-  const dragStateRef = useRef({ dragging: false, startX: 0, startScrollLeft: 0, moved: 0 })
-  const [worksVisible, setWorksVisible] = useState(false)
-  const [worksSettled, setWorksSettled] = useState(false)
-  const [activeWorkIndex, setActiveWorkIndex] = useState(0)
-
-  useEffect(() => {
-    const el = worksGridRef.current
-    if (!el) return undefined
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return
-          setWorksVisible(true)
-          observer.disconnect()
-        })
-      },
-      { threshold: 0.2 },
-    )
-
-    observer.observe(el)
-    return () => observer.disconnect()
-  }, [])
-
-  useEffect(() => {
-    if (!worksVisible) return undefined
-    const el = worksGridRef.current
-    if (!el) return undefined
-
-    if (window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) {
-      setWorksSettled(true)
-      return undefined
-    }
-
-    const handleEnd = (e) => {
-      if (e.target !== el || e.propertyName !== 'transform') return
-      setWorksSettled(true)
-    }
-    el.addEventListener('transitionend', handleEnd)
-    return () => el.removeEventListener('transitionend', handleEnd)
-  }, [worksVisible])
-
-  // 無限スライドの起点として、ループ2周目(実データと同じ並びの中央ブロック)から開始する
-  useLayoutEffect(() => {
-    const el = worksGridRef.current
-    const middleStart = el?.children[WORKS.length]
-    if (middleStart) {
-      el.scrollLeft = middleStart.offsetLeft
-    }
-  }, [])
-
-  useEffect(() => {
-    const el = worksGridRef.current
-    if (!el) return undefined
-
-    const handleScroll = () => {
-      const cards = Array.from(el.children)
-      if (cards.length === 0) return
-
-      // 端まで来たら見た目には分からない位置へ瞬時に戻し、無限ループに見せる
-      const blockWidth = el.scrollWidth / WORKS_LOOP_COUNT
-      if (el.scrollLeft < blockWidth * 0.5) {
-        el.scrollLeft += blockWidth
-      } else if (el.scrollLeft > blockWidth * 1.5) {
-        el.scrollLeft -= blockWidth
-      }
-
-      const center = el.scrollLeft + el.clientWidth / 2
-      let closestIndex = 0
-      let closestDist = Infinity
-      cards.forEach((card, i) => {
-        const cardCenter = card.offsetLeft + card.offsetWidth / 2
-        const dist = Math.abs(cardCenter - center)
-        if (dist < closestDist) {
-          closestDist = dist
-          closestIndex = i
-        }
-      })
-      setActiveWorkIndex(closestIndex % WORKS.length)
-    }
-
-    el.addEventListener('scroll', handleScroll, { passive: true })
-    return () => el.removeEventListener('scroll', handleScroll)
-  }, [])
-
-  const scrollToWork = (index) => {
-    const el = worksGridRef.current
-    if (!el) return
-    const current = el.scrollLeft + el.clientWidth / 2
-    let bestCard = null
-    let bestDist = Infinity
-    Array.from(el.children).forEach((card, i) => {
-      if (i % WORKS.length !== index) return
-      const cardCenter = card.offsetLeft + card.offsetWidth / 2
-      const dist = Math.abs(cardCenter - current)
-      if (dist < bestDist) {
-        bestDist = dist
-        bestCard = card
-      }
-    })
-    if (!bestCard) return
-    el.scrollTo({
-      left: bestCard.offsetLeft - (el.clientWidth - bestCard.offsetWidth) / 2,
-      behavior: 'smooth',
-    })
-  }
-
-  const handleWorksPointerDown = (e) => {
-    if (e.pointerType !== 'mouse') return
-    const el = worksGridRef.current
-    if (!el) return
-    dragStateRef.current = { dragging: true, startX: e.clientX, startScrollLeft: el.scrollLeft, moved: 0 }
-    el.setPointerCapture(e.pointerId)
-    el.classList.add('is-dragging')
-  }
-
-  const handleWorksPointerMove = (e) => {
-    const state = dragStateRef.current
-    if (!state.dragging) return
-    const el = worksGridRef.current
-    if (!el) return
-    const delta = e.clientX - state.startX
-    state.moved = Math.max(state.moved, Math.abs(delta))
-    el.scrollLeft = state.startScrollLeft - delta
-  }
-
-  const endWorksDrag = (e) => {
-    const state = dragStateRef.current
-    if (!state.dragging) return
-    state.dragging = false
-    const el = worksGridRef.current
-    if (el) {
-      el.classList.remove('is-dragging')
-      if (e?.pointerId != null) {
-        try {
-          el.releasePointerCapture(e.pointerId)
-        } catch {
-          // ポインターが既に解放済みの場合は無視
-        }
-      }
-    }
-  }
-
-  const handleWorksClickCapture = (e) => {
-    if (dragStateRef.current.moved > 6) {
-      e.preventDefault()
-      e.stopPropagation()
-    }
-    dragStateRef.current.moved = 0
-  }
-
   return (
     <>
       {/* ファーストビュー */}
@@ -265,59 +100,6 @@ export default function Top() {
               </p>
               <p className="message-sign">代表取締役　坂井 滉弥</p>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* WORKS */}
-      <section className="section bg-soft works-section" id="works">
-        <div className="container">
-          <Eyebrow text="WORKS" className="eyebrow--center" />
-          <h2 className="section-title section-title--center">制作実績</h2>
-          <p className="section-lead section-lead--center">
-            Web制作・ビジュアル制作・AI活用開発支援、それぞれの実績をご紹介します。
-          </p>
-
-          <div
-            className={`works-grid ${worksVisible ? 'is-visible' : ''} ${worksSettled ? 'is-settled' : ''}`}
-            ref={worksGridRef}
-            onPointerDown={handleWorksPointerDown}
-            onPointerMove={handleWorksPointerMove}
-            onPointerUp={endWorksDrag}
-            onPointerCancel={endWorksDrag}
-            onPointerLeave={endWorksDrag}
-            onClickCapture={handleWorksClickCapture}
-          >
-            {WORKS_LOOPED.map((work, i) => (
-              <Link
-                to={`/works/${work.id}`}
-                className="card work-card"
-                key={i}
-                draggable={false}
-                onDragStart={(e) => e.preventDefault()}
-              >
-                <WorkThumb work={work} image={WORK_CARD_IMAGES[i % WORK_CARD_IMAGES.length]} />
-                <div className="work-card-body">
-                  <p className="work-card-tag">{work.industry}</p>
-                  <p className="work-card-title">{work.title}</p>
-                  <p className="work-card-copy">{work.copy}</p>
-                </div>
-              </Link>
-            ))}
-          </div>
-
-          <div className="works-dots" role="tablist" aria-label="制作実績スクロール位置">
-            {WORKS.map((work, i) => (
-              <button
-                key={work.id}
-                type="button"
-                role="tab"
-                aria-selected={i === activeWorkIndex}
-                aria-label={`${i + 1}件目へスクロール`}
-                className={`works-dot ${i === activeWorkIndex ? 'is-active' : ''}`}
-                onClick={() => scrollToWork(i)}
-              />
-            ))}
           </div>
         </div>
       </section>
@@ -378,28 +160,6 @@ export default function Top() {
                   </div>
                 </div>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* SERVICE */}
-      <section className="section section--tight bg-soft" id="service">
-        <div className="container">
-          <Eyebrow text="SERVICE" />
-          <h2 className="section-title">事業内容</h2>
-          <p className="section-lead">
-            Web制作・ビジュアル制作(3D/イラスト)・AI活用開発支援の3本柱で、企画から実制作までワンストップで対応します。
-          </p>
-          <div className="grid service-list-grid">
-            {SERVICES.map((s, i) => (
-              <Link to={`/service/${s.slug}`} className="card service-list-card" key={s.slug}>
-                <span className="service-list-index">{String(i + 1).padStart(2, '0')}</span>
-                <span className={`service-icon service-icon--${s.icon}`} aria-hidden="true" />
-                <h3>{s.label}</h3>
-                <p>{s.short}</p>
-                <span className="service-card-link">詳しく見る →</span>
-              </Link>
             ))}
           </div>
         </div>

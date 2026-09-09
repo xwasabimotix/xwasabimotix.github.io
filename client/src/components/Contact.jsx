@@ -1,5 +1,4 @@
 import { useLayoutEffect, useRef, useState } from 'react'
-import { SERVICES } from '../data/services.js'
 import Eyebrow from './Eyebrow.jsx'
 import './Contact.css'
 
@@ -91,20 +90,6 @@ export default function Contact() {
                 <label className="contact-field">
                   <span>メールアドレス</span>
                   <input type="email" name="email" required />
-                </label>
-                <label className="contact-field">
-                  <span>ご相談内容</span>
-                  <select name="service" defaultValue="">
-                    <option value="" disabled>
-                      選択してください
-                    </option>
-                    {SERVICES.map((s) => (
-                      <option key={s.slug} value={s.slug}>
-                        {s.label}
-                      </option>
-                    ))}
-                    <option value="other">その他</option>
-                  </select>
                 </label>
                 <label className="contact-field">
                   <span>メッセージ</span>

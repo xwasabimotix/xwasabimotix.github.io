@@ -3,11 +3,7 @@ import { Link, NavLink } from 'react-router-dom'
 import Logo from './Logo.jsx'
 import './Header.css'
 
-const NAV_ITEMS = [
-  { to: '/#about', label: 'ABOUT' },
-  { to: '/#works', label: 'WORKS' },
-  { to: '/#service', label: 'SERVICE' },
-]
+const NAV_ITEMS = [{ to: '/#about', label: 'ABOUT' }]
 
 const SCROLL_START = 100
 const SCROLL_RANGE = 200
