@@ -1,6 +1,20 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import './ScrambleText.css'
 
+function hexToRgb(hex) {
+  const n = parseInt(hex.replace('#', ''), 16)
+  return [(n >> 16) & 255, (n >> 8) & 255, n & 255]
+}
+
+function interpolateColor(fromHex, toHex, t) {
+  const [r1, g1, b1] = hexToRgb(fromHex)
+  const [r2, g2, b2] = hexToRgb(toHex)
+  const r = Math.round(r1 + (r2 - r1) * t)
+  const g = Math.round(g1 + (g2 - g1) * t)
+  const b = Math.round(b1 + (b2 - b1) * t)
+  return `rgb(${r}, ${g}, ${b})`
+}
+
 export default function ScrambleText({
   text,
   as: Tag = 'span',
@@ -10,6 +24,8 @@ export default function ScrambleText({
   accentLength = 0,
   easeStart = 1,
   easePower = 3,
+  gradientFrom,
+  gradientTo,
   onComplete,
 }) {
   const chars = useMemo(() => Array.from(text), [text])
@@ -66,6 +82,11 @@ export default function ScrambleText({
         const isActiveCursor = i === settledCount
         const displayChar = c === ' ' ? ' ' : c
 
+        const style =
+          isSettled && gradientFrom && gradientTo
+            ? { color: interpolateColor(gradientFrom, gradientTo, chars.length > 1 ? i / (chars.length - 1) : 0) }
+            : undefined
+
         return (
           <span
             key={i}
@@ -73,6 +94,7 @@ export default function ScrambleText({
               isActiveCursor ? 'is-active-cursor' : ''
             } ${i >= chars.length - accentLength ? 'scramble-char--accent' : ''}`}
             data-char={c}
+            style={style}
           >
             {displayChar}
           </span>

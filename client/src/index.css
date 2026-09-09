@@ -119,8 +119,15 @@ button {
 
 /* background-clip:textは環境によって@supportsが通っても実際には切り抜かれず
    文字が透明のまま消えることがあったため、グラデーションはやめて確実に
-   表示される単色にする */
+   表示される単色にする(グラデーション風の見た目はJSで1文字ずつ色を補間して再現) */
 .eyebrow .scramble-text {
+  color: var(--blue);
+}
+
+/* ScrambleTextのカーソル(_)や settle 時のにじみは白固定になっているため、
+   白背景に載る eyebrow では見えるように上書きする */
+.eyebrow .scramble-char.is-active-cursor::before,
+.eyebrow .scramble-char.is-settled::after {
   color: var(--blue);
 }
 
