@@ -124,11 +124,16 @@ button {
   color: var(--blue);
 }
 
-/* ScrambleTextのカーソル(_)や settle 時のにじみは白固定になっているため、
-   白背景に載る eyebrow では見えるように上書きする */
-.eyebrow .scramble-char.is-active-cursor::before,
-.eyebrow .scramble-char.is-settled::after {
+/* ScrambleTextのカーソル(_)は白固定になっているため、白背景に載る eyebrow では
+   見えるように上書きする */
+.eyebrow .scramble-char.is-active-cursor::before {
   color: var(--blue);
+}
+
+/* 確定時のぼやけたにじみ(settle-bleed)エフェクトは eyebrow では不要なので消す */
+.eyebrow .scramble-char.is-settled::after {
+  content: none;
+  animation: none;
 }
 
 .eyebrow--center {
